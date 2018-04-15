@@ -1,0 +1,96 @@
+<div style=" width: 140%;
+margin-top: 7%;
+margin-left: -2%;" class="col-md-12">
+    <div class="panel panel-primary">
+        <div class="panel-body">
+            <b><a style="color: red">IMPORT STUDENT DATA</a></b>
+
+            <div class="col-lg-12">
+                <div class="topbutton">
+                    <button type="button" style=" width: 70px;
+            height: 30px;
+            padding: 6px 0px;
+            border-radius: 15px;
+            text-align: center;
+            line-height: 1;
+            " class="btn btn-danger btn-circle"><i class="fa fa-plus-circle">&nbsp;Import</i>
+            </button>
+
+
+                    <button type="button" style=" width: 70px;
+            height: 30px;
+            padding: 6px 0px;
+            border-radius: 15px;
+            text-align: center;
+            line-height: 1;
+            " class="btn btn-light btn-circle"><i class="fa fa-times-circle">&nbsp;Cancel</i>
+            </button>
+
+                </div>
+
+                <hr>
+                <br>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <span>To import data into this page please make sure the the file is a CSV file and contains the proper headers and in the order mentioned below.</span>
+                        <p></p>
+                        <span> <b>(Admission Id, Course, Admission Year, Name, Gender, Date of Birth, Place of Birth, Marital Status, Religion, Nationality, Category, Blood Group, Bank Name, Account Number, Branch Address, Landline, Phone, Email, Address, Roll Number, Class)</b></span>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="form-group ">
+                            <span class="help-block" style="word-wrap: break-word;">
+</span>
+                            <span class="help-block" style="word-wrap: break-word;">
+</span>
+                            <span class="help-block" style="word-wrap: break-word;">
+</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 table-responsive">
+                        <table id="staffImport" class="table table-bordered" cellspacing="0" width="100%">
+                            <thead>
+                                <tr>
+                                    <th class="_id" fieldid="0">
+                                        <div class="form-group">
+                                            <input name="all" id="select_all" class="select_all" type="checkbox">
+                                            <span class="help-block"></span>
+                                        </div>
+                                    </th>
+                                    <th class="sortable admission_id" fieldid="1">
+                                        Reg. No.&nbsp;&nbsp;
+                                        <i class="fa fa-sort-asc"></i>
+                                    </th>
+                                    <th class="course_admitted_to sortable" fieldid="2">Course</th>
+                                    <th class="division sortable" fieldid="3">Class</th>
+                                    <th class="roll_number sortable" fieldid="4">Roll no.</th>
+                                    <th class="_id sortable" fieldid="5">Name</th>
+                                    <th class="admission_year sortable" fieldid="6">Year</th>
+                                    <th class="gender sortable" fieldid="7">Gender</th>
+                                    <th class="date_of_birth sortable" fieldid="8">Birth Date (m/d/yyyy)</th>
+                                    <th class="religion sortable" fieldid="9">Religion</th>
+                                    <th class="nationality sortable" fieldid="10">Nationality</th>
+                                    <th class="category sortable" fieldid="11">Category</th>
+                                    <th class="blood_group sortable" fieldid="12">Blood Group</th>
+                                    <th class="sortable" fieldid="15">Place of Birth</th>
+                                    <th class="sortable" fieldid="15">Marital Status</th>
+                                    <th class="sortable" fieldid="15">Bank Name</th>
+                                    <th class="sortable" fieldid="15">Account Number</th>
+                                    <th class="sortable" fieldid="15">Branch Address</th>
+                                    <th class="sortable" fieldid="15">Landline</th>
+                                    <th class="sortable" fieldid="15">Phone</th>
+                                    <th class="sortable" fieldid="15">Email</th>
+                                    <th class="sortable" fieldid="15">Address</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,91 @@
+<div class="col-md-12"> 
+    <div class="panel panel-primary">
+    <div class="panel-body">
+    <span>PROSPECTUS</span>
+    <a href=""><button class="btn btn-default" style="float:right">View</button></a>
+    <hr>
+    <h4>Generate Prospectus Code</h4>
+    <div class="row">
+    <div class="col-md-2">
+    <div class="form-group ">
+    <select class="form-control" name="gen_year" id="gen_year" required type="text">
+    <option value="">(-Select year-)</option>
+    <option *ngFor= "let admission of admissions" [value]="admission">
+    {{admission}}
+    </option> 
+    </select>
+    </div>
+    </div>
+    
+    <div class="col-md-2">
+    <div class="form-group ">
+    <input class="form-control" name="no_of_code" id="no_of_code" placeholder="No. of Code" type="number" required>
+    <span class="help-block">
+    </span>
+    </div>
+    </div>
+    
+    <div class="col-md-2">
+    <div class="form-group ">
+    <input class="form-control" name="pr_batch" id="pr_batch"  type="text" placeholder="Batch name" required>
+    <span class="help-block">
+    </span>
+    </div>
+    </div>
+    
+    <div class="col-md-2">
+    <button type="submit" id="submit" class="btn btn-default">Generate</button>
+    </div>
+    
+    </div>
+    <hr>
+    
+    <h4>Disable Prospectus Code</h4>
+    <div class="row">
+    <div class="col-md-2">
+    <div class="form-group ">
+    <select class="form-control" id="dis_year" name="dis_year" required type="text">
+    <option value="">(-Select year-)</option>
+    <option *ngFor= "let admission of admissions" [value]="admission">
+    {{admission}}
+    </option> 
+    </select>
+    </div>
+    </div>
+    <div class="col-md-2">
+    <button type="submit" name="submit" class="btn btn-default">Disable</button>
+    </div>
+    </div>
+    
+    <hr>
+    <h4>Print Prospectus Code</h4>
+    <div class="row">
+    <div class="col-md-2">
+    <div class="form-group ">
+    <select class="form-control" id="dis_year" name="dis_year" required type="text">
+    <option value="">(-Select year-)</option>
+    <option *ngFor= "let admission of admissions" [value]="admission">
+    {{admission}}
+    </option> 
+    </select>
+    </div>
+    </div>
+    <div class="col-md-2">
+    <button type="submit" class="btn btn-default">Print</button>
+    </div>
+    </div> 
+    <hr>
+    <hr>
+    </div>
+    </div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    

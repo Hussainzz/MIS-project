@@ -1,0 +1,76 @@
+<br>
+<form>
+    <alert></alert>
+    <fieldset class="formpanel">
+
+
+
+        <div class="info-header">
+
+            <h1>SEARCH BOOK</h1>
+
+            <hr class="head">
+
+        </div>
+
+
+
+        <table class="table borderless">
+
+            <tr>
+                <td>
+                    ISBN
+                    <input name="ISBN" type="text" class="form-control" #ISBN>
+                </td>
+
+                <td>
+                    Book Name
+                    <input name="BookName" type="text" class="form-control" #BookName>
+                </td>
+
+                <td>
+                    Author
+                    <input name="Author" type="text" class="form-control" #Author>
+                </td>
+            </tr>
+
+
+
+            <button type="submit" class="btn btn-danger" (click)="SearchBooks(ISBN,BookName,Author)">Search</button>&nbsp;&nbsp;
+            <button type="reset" class="btn btn-light">Cancel</button>
+
+        </table>
+
+        <table class="table  table-striped table-hover table-bordered reactive-table">
+            <thead>
+                <tr>
+                    <th fieldid="0">ISBN</th>
+                    <th fieldid="1">Name</th>
+                    <th fieldid="2">Author</th>
+                    <th fieldid="3">Manage</th>
+
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let Book of Books">
+                    <td>{{Book.Isbn}}</td>
+                    <td>{{Book.BookName}}</td>
+                    <td>{{Book.Author}}</td>
+                    <td><span class=" glyphicon glyphicon-edit"></span>
+                        <span class=" glyphicon glyphicon-trash " (click)="Delete(Book)"></span></td>
+
+
+                </tr>
+            </tbody>
+        </table>
+
+
+
+
+
+
+
+
+    </fieldset>
+</form>

@@ -1,0 +1,39 @@
+<div class="col-md-12"> 
+    <div class="panel panel-primary">
+    <div class="panel-body">
+    <span>SPECIAL PROSPECTUS</span>
+    <a href=""><button class="btn btn-default" style="float:right">View</button></a>
+    <hr>
+    <br>
+    <div class="row">
+    <div class="col-md-2">
+    <div class="form-group ">
+    <label>Enter Code</label>
+    <input class="form-control"  required name="prospectus_code" id="prospectus_code">
+    <span class="help-block">
+    </span>
+    </div>
+    </div>
+    <div class="col-md-2">
+    <div class="form-group ">
+    <label>Course</label>
+    <select class="form-control" name="course" id="course" required>
+    <option value="">(-Select Course-)</option>
+    <option *ngFor= "let course of courses" [value]="course">
+    {{course}}
+    </option>
+    </select>
+    </div>
+    </div>
+    
+    <div class="col-md-12">
+    <button type="submit" class="btn btn-default">Add special case</button>
+    </div>
+    
+    </div>
+    <hr>
+    </div>
+    </div>
+    </div>
+    
+    

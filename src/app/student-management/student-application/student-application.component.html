@@ -1,0 +1,824 @@
+<form (ngSubmit)="onSubmit(studentDetails)" #studentDetails="ngForm">
+    <alert></alert>
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <b><a style="color: red">MAIN DETAILS</a></b>
+                <hr>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label class="control-label">Roll No</label>
+                            <input id="RollNo" name="RollNo" [(ngModel)]="RollNo" type="text" value="{{RollPrefix}}" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="form-group" [class.has-error]="courseControl.invalid && courseControl.touched">
+                            <label class="control-label">
+    Select The Course*
+    </label>
+                            <select required id="Course" name="Course" [(ngModel)]="Course" class="form-control" #courseControl="ngModel" #C (change)="getDivision(C)">
+    <option value="">(Select One)</option>
+    <option *ngFor= "let course of CourseData" value="{{course.Cid}}">{{course.CourseShortName}}</option>
+    </select>
+                            <div class="help-block" *ngIf="courseControl.invalid && courseControl.touched">
+                                Course is Required.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="form-group" [class.has-error]="admissionControl.invalid && admissionControl.touched">
+                            <label class="control-label">
+    Admission Year*
+    </label>
+                            <select required id="AdmissionYear" name="AdmissionYear" class="form-control" [(ngModel)]="AdmissionYear" #admissionControl="ngModel">
+    <option value="">(Select One)</option>
+    <option *ngFor= "let admission of admissions" [value]="admission">
+    {{admission}}
+    </option>
+    </select>
+                            <div class="help-block" *ngIf="admissionControl.invalid && admissionControl.touched">
+                                Admission Year is Required.
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label class="control-label">
+    Division
+    </label>
+                            <select id="Division" name="Division" class="form-control" [(ngModel)]="Division">
+    <option value="">(Select One)</option>
+    <option *ngFor= "let division of DivisionData" value="{{division.Did}}">{{division.DivisionName}}</option>
+    </select>
+
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label class="control-label">
+    Semester
+    </label>
+                            <select id="semester" name="semester" [(ngModel)]="semester" class="form-control">
+    <option value="" selected="selected">(Select One)</option>
+    <option *ngFor= "let semester of semesters" [value]="semester">
+    {{semester}}
+    </option>
+    </select>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <br>
+
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <b><a style="color: red">PERSONAL DETAILS</a></b>
+                <hr>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="form-group" [class.has-error]="firstnameControl.invalid && firstnameControl.touched">
+                            <label class="control-label">First Name*</label>
+                            <input required pattern="^[a-zA-Z]+$" type="text" id="firstname" name="firstname" class="form-control" [(ngModel)]="firstname" #firstnameControl="ngModel">
+                            <span class="help-block" style="color:red" *ngIf="firstnameControl.errors?.required && firstnameControl.touched">
+                                First Name is Required</span>
+                            <span class="help-block" style="color:red" *ngIf="firstnameControl.errors?.pattern && firstnameControl.touched">
+                                Only Alphabets Allowed
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="form-group" [class.has-error]="middlenameControl.invalid && middlenameControl.touched">
+                            <label class="control-label">Middle Name</label>
+                            <input pattern="^[a-zA-Z]+$" id="middlename" name="middlename" [(ngModel)]="middlename" #middlenameControl="ngModel" type="text" class="form-control">
+                            <span class="help-block" style="color:red" *ngIf="middlenameControl.errors?.pattern && middlenameControl.touched">
+                                Only Alphabets Allowed
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="form-group" [class.has-error]="lastnameControl.invalid && lastnameControl.touched">
+                            <label class="control-label">Last Name*</label>
+                            <input required pattern="^[a-zA-Z]+$" id="lastname" name="lastname" [(ngModel)]="lastname" type="text" class="form-control" #lastnameControl="ngModel">
+
+                            <span class="help-block" style="color:red" *ngIf="lastnameControl.errors?.required && lastnameControl.touched">
+                                Last Name is Required</span>
+                            <span class="help-block" style="color:red" *ngIf="lastnameControl.errors?.pattern && lastnameControl.touched">
+                                Only Alphabets Allowed
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="form-group" [class.has-error]="genderControl.invalid && genderControl.touched">
+                            <label class="control-label">Gender*</label>
+                            <br>
+                            <label class="radio-inline">
+  <input required type="radio" value="male" name="gender" #genderControl="ngModel" [(ngModel)]="gender">
+  Male
+  </label>
+                            <label class="radio-inline">
+  <input required type="radio" value="female"  name="gender" #genderControl="ngModel" [(ngModel)]="gender">
+  Female
+  </label>
+                            <span class="help-block" style="color:red" *ngIf="genderControl.errors?.required && genderControl.touched">
+Gender Required</span>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="form-group" required [class.has-error]="dobControl.invalid && dobControl.touched">
+                            <label lass="control-label">Date Of Birth*</label>
+                            <input required id="dateOfBirth" name="dateOfBirth" [(ngModel)]="dateOfBirth" #dobControl="ngModel" type="date" class="form-control" placeholder="yyyy/mm/dd">
+                            <span class="help-block" style="color:red" *ngIf="dobControl.errors?.required && dobControl.touched">
+ Date of Birth Required</span>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="form-group" [class.has-error]="placeOfBirthControl.invalid && placeOfBirthControl.touched">
+                            <label class="control-label">Place Of Birth*</label>
+                            <input required pattern="^[a-zA-Z]+$" id="placeOfBirth" name="placeOfBirth" [(ngModel)]="placeOfBirth" type="text" class="form-control" #placeOfBirthControl="ngModel">
+                            <span class="help-block" style="color:red" *ngIf="placeOfBirthControl.errors?.required && placeOfBirthControl.touched">
+Place of Birth Required</span>
+                            <span class="help-block" style="color:red" *ngIf="placeOfBirthControl.errors?.pattern && placeOfBirthControl.touched">
+Only Alphabets Allowed
+</span>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="form-group" [class.has-error]="maritalstatusControl.invalid && maritalstatusControl.touched">
+                            <label class="control-label">Marital Status*</label>
+                            <br>
+                            <label class="radio-inline">
+<input required type="radio" value="Unmarried" name="mstatus" #maritalstatusControl="ngModel" [(ngModel)]="mstatus">
+Unmarried
+</label>
+                            <label class="radio-inline">
+<input required type="radio" value="Married"  name="mstatus" #maritalstatusControl="ngModel" [(ngModel)]="mstatus">
+Married
+</label>
+                            <span class="help-block" style="color:red" *ngIf="maritalstatusControl.errors?.required && maritalstatusControl.touched">
+Marital status required</span>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="form-group" [class.has-error]="religionControl.invalid && religionControl.touched">
+                            <label class="control-label">Religion*</label>
+                            <input required pattern="[a-zA-Z][a-zA-Z ]*" id="religion" name="religion" type="text" class="form-control" [(ngModel)]="religion" #religionControl="ngModel">
+                            <span class="help-block" style="color:red" *ngIf="religionControl.errors?.required && religionControl.touched">
+Religion required</span>
+                            <span class="help-block" style="color:red" *ngIf="religionControl.errors?.pattern && religionControl.touched">
+Only Alphabets Allowed</span>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="form-group" [class.has-error]="nationalityControl.invalid && nationalityControl.touched">
+                            <label class="control-label"> Nationality*</label>
+                            <select required id="nationality" name="nationality" [(ngModel)]="nationality" #nationalityControl="ngModel" class="form-control">
+<option value="">(Select One)</option>
+<option *ngFor= "let nationalities of nationalities" [value]="nationalities">
+{{nationalities}}
+  </option>
+  </select>
+                            <span class="help-block" style="color:red" *ngIf="nationalityControl.errors?.required && nationalityControl.touched">
+Nationality required</span>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="form-group" [class.has-error]="categoryControl.invalid && categoryControl.touched">
+                            <label class="control-label">Class/Category*</label>
+                            <br>
+                            <label class="radio-inline">
+  <input  required type="radio" value="General" name="category" #categoryControl="ngModel" [(ngModel)]="category">
+  General
+  </label>
+                            <label class="radio-inline">
+                            <input required type="radio" value="EBC" name="category" #categoryControl="ngModel" [(ngModel)]="category"> EBC
+                            </label>
+                            <label class="radio-inline">
+  <input required type="radio" value="SC"  name="category" #categoryControl="ngModel"  [(ngModel)]="category">
+   SC
+  </label>
+                            <label required class="radio-inline">
+  <input type="radio" value="ST"  name="category" #categoryControl="ngModel" [(ngModel)]="category">
+  ST
+  </label>
+                            <label required class="radio-inline">
+  <input type="radio" value="OBC"  name="category" #categoryControl="ngModel" [(ngModel)]="category">
+   OBC
+  </label>
+                            <span class="help-block" style="color:red" *ngIf="categoryControl.errors?.required && categoryControl.touched">
+Category/Class required</span>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="form-group" [class.has-error]="mobilenumberControl.invalid && mobilenumberControl.touched">
+                            <label class="control-label">Mobile Number</label>
+                            <input id="mobilenumber" pattern="^(\+91[\-\s]?)?[0]?(91)?[789]\d{9}$" name="mobilenumber" [(ngModel)]="mobilenumber" #mobilenumberControl="ngModel" type="text" class="form-control">
+                            <div class="help-block" style="color:red" *ngIf="mobilenumberControl.errors?.pattern && mobilenumberControl.touched">
+                                Use valid phone number</div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-12">
+                        <div class="form-group" [class.has-error]="bloodControl.invalid && bloodControl.touched">
+                            <label class="control-label">Blood Group*</label>
+                            <br>
+                            <label class="radio-inline">
+<input required type="radio" value="o+" name="blood" #bloodControl="ngModel" [(ngModel)]="blood">
+O+
+</label>
+                            <label class="radio-inline">
+<input type="radio" value="O-"  name="blood" #bloodControl="ngModel" [(ngModel)]="blood">
+ O-
+  </label>
+                            <label class="radio-inline">
+  <input type="radio" value="A+"  name="blood" #bloodControl="ngModel" [(ngModel)]="blood">
+   A+
+  </label>
+                            <label class="radio-inline">
+  <input type="radio" value="A-"  name="blood" #bloodControl="ngModel"  [(ngModel)]="blood">
+  A-
+  </label>
+                            <label class="radio-inline">
+  <input type="radio" value="B+"  name="blood" #bloodControl="ngModel" [(ngModel)]="blood">
+  B+
+  </label>
+                            <label class="radio-inline">
+  <input type="radio" value="B-"  name="blood" #bloodControl="ngModel" [(ngModel)]="blood">
+   B-
+  </label>
+                            <label class="radio-inline">
+  <input type="radio" value="AB+"  name="blood" #bloodControl="ngModel" [(ngModel)]="blood">
+   AB+
+  </label>
+                            <label class="radio-inline">
+  <input type="radio" value="AB-"  name="blood" #bloodControl="ngModel" [(ngModel)]="blood">
+   AB-
+  </label>
+                            <span class="help-block" style="color:red" *ngIf="bloodControl.errors?.required && bloodControl.touched">
+Blood Group Required</span>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label class="control-label">Bank Name</label>
+                            <input id="bankname" name="bankname" [(ngModel)]="bankname" type="text" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label class="control-label">Account Number</label>
+                            <input id="accountnumber" name="accountnumber" [(ngModel)]="accountnumber" type="text" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label class="control-label">Branch Address</label>
+                            <input id="branchaddress" name="branchaddress" [(ngModel)]="branchaddress" type="text" class="form-control">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <b><a style="color: red">FAMILY INFORMATION</a></b>
+                <hr>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label class="control-label">Landline Number</label>
+                            <input id="landlinenumber" name="landlinenumber" [(ngModel)]="landlinenumber" type="text" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="form-group" [class.has-error]="pmobilenumberControl.invalid && pmobilenumberControl.touched">
+                            <label class="control-label">Parents Mobile Number*</label>
+                            <input required pattern="^(\+91[\-\s]?)?[0]?(91)?[789]\d{9}$" id="mobnumber" name="mobnumber" #pmobilenumberControl="ngModel" [(ngModel)]="mobnumber" type="text" class="form-control">
+                            <span class="help-block" style="color:red" *ngIf="pmobilenumberControl.errors?.pattern && pmobilenumberControl.touched">
+                                Use valid phone number</span>
+                            <span class="help-block" style="color:red" *ngIf="pmobilenumberControl.errors?.required && pmobilenumberControl.touched">
+                                Phone Number required</span>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="form-group" [class.has-error]="emailControl.invalid && emailControl.touched">
+                            <label class="control-label">Email Address</label>
+                            <input pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$" id="email" name="email" #emailControl="ngModel" [(ngModel)]="email" type="email" class="form-control" placeholder="abc@gmail.com">
+                            <span class="help-block" style="color:red" *ngIf="emailControl.errors?.pattern && emailControl.touched">
+                                Invalid email address</span>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-12">
+                        <label class="control-label">Residential Address:</label>
+                        <textarea class="form-control" id="address" name="address" [(ngModel)]="address" placeholder="Enter House/Flat No:, Village/Town, Taluka, Pincode"></textarea>
+                    </div>
+                    <br><br><br><br><br><br><br><br><br>
+                    <div class="col-lg-4">
+                        <div class="form-group" [class.has-error]="fathersnameControl.invalid && fathersnameControl.touched">
+                            <label class="control-label">Father's Name*</label>
+                            <input required pattern="[a-zA-Z][a-zA-Z ]*" id="fathername" name="fathername" placeholder="Firstname and Lastname" #fathersnameControl="ngModel" [(ngModel)]="fathername" type="text" class="form-control" />
+                            <span class="help-block" style="color:red" *ngIf="fathersnameControl.errors?.required && fathersnameControl.touched">
+                                Father's Name Required</span>
+                            <span class="help-block" style="color:red" *ngIf="fathersnameControl.errors?.pattern && fathersnameControl.touched">
+                                    Only Alphabets allowed</span>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="form-group" [class.has-error]="fatherlivingControl.invalid && fatherlivingControl.touched">
+                            <label class="control-label">Is Your Father living?*</label>
+                            <br>
+                            <label class="radio-inline">
+        <input required type="radio" name="fatherLiving" #fatherlivingControl="ngModel" [(ngModel)]="fatherLiving" [value]="true" [checked]="fatherLiving">
+        Yes
+        </label>
+                            <label class="radio-inline">
+        <input required type="radio" name="fatherLiving"  #fatherlivingControl="ngModel" [(ngModel)]="fatherLiving" [value]="false" [checked]="!fatherLiving">
+        No
+        </label>
+                            <span class="help-block" style="color:red" *ngIf="fatherlivingControl.errors?.required && fatherlivingControl.touched">
+                                Required</span>
+                        </div>
+                    </div>
+
+                    <div *ngIf="fatherLiving">
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label class="control-label" [class.has-error]="fatheroccupationControl.invalid && fatheroccupationControl.touched">Father's Occupation*</label>
+                                <input required pattern="[a-zA-Z][a-zA-Z ]*" id="occup" name="occup" #fatheroccupationControl="ngModel" [(ngModel)]="occup" type="text" class="form-control">
+                                <span class="help-block" style="color:red" *ngIf="fatheroccupationControl.errors?.required && fatheroccupationControl.touched">
+                                    Required</span>
+                                <span class="help-block" style="color:red" *ngIf="fatheroccupationControl.errors?.pattern && fatheroccupationControl.touched">
+                                        Only alphabets allowed</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="form-group" [class.has-error]="mothernameControl.invalid && mothernameControl.touched">
+                            <label class="control-label">Mother's Name*</label>
+                            <input required pattern="[a-zA-Z][a-zA-Z ]*" id="mothername" name="mothername" placeholder="Firstname and Lastname" #mothernameControl="ngModel" [(ngModel)]="mothername" type="text" class="form-control">
+                            <span class="help-block" style="color:red" *ngIf="mothernameControl.errors?.required && mothernameControl.touched">
+                                Required</span>
+                            <span class="help-block" style="color:red" *ngIf="mothernameControl.errors?.pattern && mothernameControl.touched">
+                                Only alphabets allowed</span>
+
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="form-group" [class.has-error]="motherlivingControl.invalid && motherlivingControl.touched">
+                            <label class="control-label">Is Your Mother living?*</label>
+                            <br>
+                            <label class="radio-inline">
+        <input required type="radio"  name="motherLiving" #motherlivingControl="ngModel" [(ngModel)]="motherLiving" [value]="true" [checked]="motherLiving">
+        Yes
+        </label>
+                            <label class="radio-inline">
+        <input required type="radio"  name="motherLiving" #motherlivingControl="ngModel"  [(ngModel)]="motherLiving" [value]="false" [checked]="!motherLiving">
+        No
+        </label>
+                            <span class="help-block" style="color:red" *ngIf="motherlivingControl.errors?.required && motherlivingControl.touched">
+                                Required</span>
+                        </div>
+                    </div>
+
+                    <div *ngIf="motherLiving">
+                        <div class="col-lg-4">
+                            <div class="form-group" [class.has-error]="motheroccupationControl.invalid && motheroccupationControl.touched">
+                                <label class="control-label">Mother's Occupation*</label>
+                                <input required pattern="[a-zA-Z][a-zA-Z ]*" id="moccup" name="moccup" #motheroccupationControl="ngModel" [(ngModel)]="moccup" type="text" class="form-control">
+                                <span class="help-block" style="color:red" *ngIf="motheroccupationControl.errors?.required && motheroccupationControl.touched">
+                                    Required</span>
+                                <span class="help-block" style="color:red" *ngIf="motheroccupationControl.errors?.pattern && motheroccupationControl.touched">
+                                        Only Alphabets Allowed</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="form-group" [class.has-error]="pemailControl.invalid && pemailControl.touched">
+                            <label class="control-label">Parent's Email</label>
+                            <input pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$" id="pemail" name="pemail" #pemailControl="ngModel" [(ngModel)]="pemail" type="email" class="form-control">
+                            <span class="help-block" style="color:red" *ngIf="pemailControl.errors?.pattern && pemailControl.touched">
+                                invalid email</span>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label class="control-label">Mention name of sibling if studying in this college</label>
+                            <input id="sname" name="sname" [(ngModel)]="sname" type="text" class="form-control">
+                        </div>
+                    </div>
+                </div>
+
+                <fieldset>
+                    <legend>Guardian Details</legend>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <label class="control-label">Living with a guardian? If yes fill in details below.*</label>
+                            <br>
+                            <label class="radio-inline">
+        <input  type="radio" name="gdetails" [(ngModel)]="gdetails"   [value]="true" [checked]="gdetails"/>
+        Yes
+        </label>
+                            <label class="radio-inline">
+        <input type="radio"  name="gdetails" [(ngModel)]="gdetails"  [value]="false" [checked]="!gdetails"/>
+        No
+        </label>
+                        </div>
+                    </div>
+
+
+                    <div *ngIf="gdetails">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <div class="form-group" [class.has-error]="gnameControl.invalid && gnameControl.touched">
+                                    <label class="control-label">Guardian's Name</label>
+                                    <input required pattern="[a-zA-Z][a-zA-Z ]*" id="gname" name="gname" [(ngModel)]="gname" #gnameControl="ngModel" type="text" class="form-control">
+                                    <span class="help-block" style="color:red" *ngIf="gnameControl.errors?.required && gnameControl.touched">
+                                        Guardian Name Required</span>
+                                    <span class="help-block" style="color:red" *ngIf="gnameControl.errors?.pattern && gnameControl.touched">
+                                            Only Alphabets allowed</span>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4">
+                                <div class="form-group" [class.has-error]="goccupControl.invalid && goccupControl.touched">
+                                    <label class="control-label">Guardian's Occupation</label>
+                                    <input required pattern="[a-zA-Z][a-zA-Z ]*" id="goccup" name="goccup" [(ngModel)]="goccup" #goccupControl="ngModel" type="text" class="form-control">
+                                    <span class="help-block" style="color:red" *ngIf="goccupControl.errors?.required && goccupControl.touched">
+                                        Guardian Occupation Required</span>
+                                    <span class="help-block" style="color:red" *ngIf="goccupControl.errors?.pattern && goccupControl.touched">
+                                            Only alphabets allowed</span>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4">
+                                <div class="form-group" [class.has-error]="grelControl.invalid && grelControl.touched">
+                                    <label class="control-label">Guardian's Relation</label>
+                                    <input required pattern="[a-zA-Z][a-zA-Z ]*" id="grel" name="grel" [(ngModel)]="grel" #grelControl="ngModel" type="text" class="form-control">
+                                    <span class="help-block" style="color:red" *ngIf="grelControl.errors?.required && grelControl.touched">
+                                        Guardian Relation Required</span>
+                                    <span class="help-block" style="color:red" *ngIf="grelControl.errors?.pattern && grelControl.touched">
+                                            Only alphabets allowed</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="form-group" [class.has-error]="gaddress.invalid && gaddress.touched">
+                                    <label class="control-label">Guardian's Address:</label>
+                                    <textarea required class="form-control" rows="3" cols="100" id="Gaddress" name="Gaddress" [(ngModel)]="Gaddress" #gaddress="ngModel" placeholder="Enter House/Flat No:, Village/Town, Taluka, Pincode"></textarea>
+                                    <span class="help-block" style="color:red" *ngIf="grelControl.errors?.required && grelControl.touched">
+                                        Guardian Address Required</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="col-md-12" *ngIf="!gdetails">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <b><a style="color: red">ACADEMIC INFORMATION</a></b>
+                <hr>
+                <div class="row">
+                    <fieldset>
+                        <legend>S.S.C or Equivalent</legend>
+                        <div class="col-lg-4">
+                            <div class="form-group" [class.has-error]="spassControl.invalid && spassControl.touched">
+                                <label class="control-label">Board/School Passed Out Of (Goa Board, Open School, ICSE etc) * *</label>
+                                <input required pattern="[a-zA-Z][a-zA-Z ]*" id="spass" name="spass" #spassControl="ngModel" [(ngModel)]="spass" type="text" class="form-control">
+                                <span class="help-block" style="color:red" *ngIf="spassControl.errors?.required && spassControl.touched">
+                                    Required</span>
+                                <span class="help-block" style="color:red" *ngIf="spassControl.errors?.pattern && spassControl.touched">
+                                        Only Alphabets allowed</span>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="col-lg-4">
+                            <div class="form-group" [class.has-error]="sseatnumberControl.invalid && sseatnumberControl.touched">
+                                <label class="control-label">Seat Number*</label>
+                                <input required id="snum" name="snum" #sseatnumberControl="ngModel" [(ngModel)]="snum" type="text" class="form-control">
+                                <span class="help-block" style="color:red" *ngIf="sseatnumberControl.errors?.required && sseatnumberControl.touched">
+                                    Required</span>
+                            </div>
+                        </div>
+                        <br><br><br><br><br>
+                        <div class="col-lg-4">
+                            <div class="form-group" [class.has-error]="smopControl.invalid && smopControl.touched">
+                                <label class="control-label">Month Of Passing*</label>
+                                <select required id="mpass" name="mpass" #smopControl="ngModel" [(ngModel)]="mpass" class="form-control">
+    <option value="" selected="selected">(Select One)</option>
+    <option *ngFor= "let month of months" [value]="month">
+        {{month}}
+        </option>
+        </select>
+                                <span class="help-block" style="color:red" *ngIf="smopControl.errors?.required && smopControl.touched">
+                                    Required</span>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4">
+                            <div class="form-group" [class.has-error]="syopControl.invalid && syopControl.touched">
+                                <label class="control-label">Year Of Passing*</label>
+                                <select required id="ypass" name="ypass" #syopControl="ngModel" [(ngModel)]="ypass" class="form-control">
+        <option value="" selected="selected">(Select One)</option>
+        <option *ngFor= "let year of years" [value]="year">
+            {{year}}
+            </option>
+        </select>
+                                <span class="help-block" style="color:red" *ngIf="syopControl.errors?.required && syopControl.touched">
+                                    Required</span>
+                            </div>
+                        </div>
+                        <br><br><br><br><br>
+                        <div class="col-lg-4">
+                            <div class="form-group" [class.has-error]="stmoControl.invalid && stmoControl.touched">
+                                <label class="control-label">Total Marks Obtained*</label>
+                                <input required pattern="^[0-9]*$" id="mobt" name="mobt" #stmoControl="ngModel" [(ngModel)]="mobt" type="text" class="form-control" (blur)="marksobt(mobt)">
+                                <span class="help-block" style="color:red" *ngIf="stmoControl.errors?.required && stmoControl.touched">
+                                    Required</span>
+                                <span class="help-block" style="color:red" *ngIf="stmoControl.errors?.pattern && stmoControl.touched">
+                                        Only numbers allowed</span>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4">
+                            <div class="form-group" [class.has-error]="smoutControl.invalid && smoutControl.touched">
+                                <label class="control-label">Marks Out Of*</label>
+                                <input required pattern="^[0-9]*$" id="smout" name="smout" #smoutControl="ngModel" [(ngModel)]="smout" type="text" class="form-control" (blur)="marksoutssc(smout)">
+                                <span class="help-block" style="color:red" *ngIf="smoutControl.errors?.required && smoutControl.touched">
+                                    Required</span>
+                                <span class="help-block" style="color:red" *ngIf="smoutControl.errors?.pattern && smoutControl.touched">
+                                        Only numbers allowed</span>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4">
+                            <div class="form-group" [class.has-error]="spControl.invalid && spControl.touched">
+                                <label class="control-label">Percentage*</label>
+                                <input readonly id="pobt" name="pobt" value="{{pobt}}" #spControl="ngModel" [(ngModel)]="pobt" type="text" class="form-control">
+                                <span class="help-block" style="color:red" *ngIf="spControl.errors?.required && spControl.touched">
+                                    Required</span>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4">
+                            <div class="form-group" [class.has-error]="sclassobtainedControl.invalid && sclassobtainedControl.touched">
+                                <label class="control-label">Class Obtained*</label>
+                                <input required id="cobt" name="cobt" value="{{cobt}}" #sclassobtainedControl="ngModel" [(ngModel)]="cobt" type="text" class="form-control">
+                            </div>
+                        </div>
+                        <span class="help-block" style="color:red" *ngIf="sclassobtainedControl.errors?.required && sclassobtainedControl.touched">
+                            Required</span>
+                    </fieldset>
+                </div>
+
+                <fieldset>
+                    <legend>H.S.S.C or Equivalent</legend>
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="form-group" [class.has-error]="hspassControl.invalid && hspassControl.touched">
+                                <label class="control-label">Board/School Passed Out Of (Goa Board, Open School, ICSE etc) * *</label>
+                                <input required id="hpass" name="hpass" #hspassControl="ngModel" [(ngModel)]="hpass" type="text" class="form-control">
+                                <span class="help-block" style="color:red" *ngIf="hspassControl.errors?.required && hspassControl.touched">
+                                    Required</span>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="col-lg-4">
+                            <div class="form-group" [class.has-error]="hstreamControl.invalid && hstreamControl.touched">
+                                <label class="control-label">Stream*</label>
+                                <input required id="hstream" name="hstream" #hstreamControl="ngModel" [(ngModel)]="hstream" type="text" class="form-control">
+                                <span class="help-block" style="color:red" *ngIf="hstreamControl.errors?.required && hstreamControl.touched">
+                                    Required</span>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4">
+                            <div class="form-group" [class.has-error]="hseatnumberControl.invalid && hseatnumberControl.touched">
+                                <label class="control-label">Seat Number*</label>
+                                <input required id="hsnum" name="hsnum" #hseatnumberControl="ngModel" [(ngModel)]="hsnum" type="text" class="form-control">
+                                <span class="help-block" style="color:red" *ngIf="hseatnumberControl.errors?.required && hseatnumberControl.touched">
+                                    Required</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="form-group" [class.has-error]="hmopControl.invalid && hmopControl.touched">
+                                <label class="control-label">Month Of Passing*</label>
+                                <select required id="hmpass" name="hmpass" #hmopControl="ngModel" [(ngModel)]="hmpass" class="form-control">
+    <option value="" selected="selected">(Select One)</option>
+    <option *ngFor= "let month of months" [value]="month">
+    {{month}}
+    </option>
+    </select>
+                                <span class="help-block" style="color:red" *ngIf="hmopControl.errors?.required && hmopControl.touched">
+                                    Required</span>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4">
+                            <div class="form-group" [class.has-error]="hyopControl.invalid && hyopControl.touched">
+                                <label class="control-label">Year Of Passing*</label>
+                                <select required id="hypass" name="hypass" #hyopControl="ngModel" [(ngModel)]="hypass" class="form-control">
+    <option value="" selected="selected">(Select One)</option>
+    <option *ngFor= "let year of years" [value]="year">
+    {{year}}
+    </option>
+    </select>
+                                <span class="help-block" style="color:red" *ngIf="hyopControl.errors?.required && hyopControl.touched">
+                                    Required</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="form-group" [class.has-error]="hmobtControl.invalid && hmobtControl.touched">
+                                <label class="control-label">Total Marks Obtained*</label>
+                                <input required pattern="^[0-9]*$" id="hmobt" name="hmobt" #hmobtControl="ngModel" [(ngModel)]="hmobt" type="text" class="form-control" (blur)="hmarksobt(hmobt)">
+                                <span class="help-block" style="color:red" *ngIf="hmobtControl.errors?.required && hmobtControl.touched">
+                                    Required</span>
+                                <span class="help-block" style="color:red" *ngIf="hmobtControl.errors?.pattern && hmobtControl.touched">
+                                        Only Numbers Allowed</span>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4">
+                            <div class="form-group" [class.has-error]="hmoutControl.invalid && hmoutControl.touched">
+                                <label class="control-label">Marks Out Of*</label>
+                                <input required pattern="^[0-9]*$" id="hmout" name="hmout" #hmoutControl="ngModel" [(ngModel)]="hmout" type="text" class="form-control" (blur)="marksouthssc(hmout)">
+                                <span class="help-block" style="color:red" *ngIf="hmoutControl.errors?.required &&hmoutControl.touched">
+                                    Required</span>
+                                <span class="help-block" style="color:red" *ngIf="hmoutControl.errors?.pattern &&hmoutControl.touched">
+                                        Only Numbers Allowed</span>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4">
+                            <div class="form-group" [class.has-error]="hperControl.invalid && hperControl.touched">
+                                <label class="control-label">Percentage*</label>
+                                <input readonly id="hper" name="hper" #hperControl="ngModel" [(ngModel)]="hper" type="text" class="form-control">
+                                <span class="help-block" style="color:red" *ngIf="hperControl.errors?.required && hperControl.touched">
+                                    Required</span>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4">
+                            <div class="form-group" [class.has-error]="hcobtControl.invalid && hcobtControl.touched">
+                                <label class="control-label">Class Obtained*</label>
+                                <input required id="hcobt" name="hcobt" #hcobtControl="ngModel" [(ngModel)]="hcobt" type="text" class="form-control">
+                                <span class="help-block" style="color:red" *ngIf="hcobtControl.errors?.required && hcobtControl.touched">
+                                    Required</span>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+    <br>
+
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <b><a style="color: red">OTHER DETAILS</a></b>
+                <hr>
+                <div class="row">
+                    <fieldset>
+                        <legend>Scholorship</legend>
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label class="control-label">For economically weaker sections only. If available, I would like to apply for the following:</label>
+                                <br>
+                                <label class="checkbox-inline">
+    <input type="checkbox" name="sebc" [(ngModel)]="sebc">EBC
+    </label>
+                                <label class="checkbox-inline">
+    <input type="checkbox" name="ssct" [(ngModel)]="ssct">SC/ST
+    </label>
+                                <label class="checkbox-inline">
+    <input type="checkbox" name="smin" [(ngModel)]="smin">Minority
+    </label>
+                                <label class="checkbox-inline">
+    <input type="checkbox" name="sobc" [(ngModel)]="sobc">OBC
+    </label>
+                                <label class="checkbox-inline">
+    <input type="checkbox" name="others" [(ngModel)]="others">Others
+    </label>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Areas of Interest</legend>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="control-label">Co-Curricular Activities (seminars, workshops, fieldtrips, etc)</label>
+                                    <textarea class="form-control" rows="3" id="activities" name="activities" [(ngModel)]="activities"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="control-label">Extra-Curricular Activities (drama, photography, music, etc)</label>
+                                    <textarea class="form-control" rows="3" id="exactivities" name="exactivities" [(ngModel)]="exactivities"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">Sports Participation</div>
+                                        <ul class="list-group">
+                                            <li class="list-group-item autoform-array-item">
+                                                <div>
+                                                    <div class="autoform-array-item-body">
+                                                        <div class="panel panel-default">
+                                                            <div class="panel-heading">
+                                                                <h3 class="panel-title">Sports Participation</h3>
+                                                            </div>
+                                                            <div class="panel-body">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">Sports Name</label>
+                                                                    <input id="sport" name="sport" [(ngModel)]="sport" type="text" class="form-control">
+                                                                </div>
+
+                                                                <div class="form-group">
+                                                                    <label class="control-label">Level of Participation</label>
+                                                                    <select multiple="" name="Sports_Participation" [(ngModel)]="sportLevel" class="form-control">
+        <option value="Collegiate">Collegiate</option>
+        <option value="Inter-Collegiate">Inter-Collegiate</option>
+        <option value="State">State</option>
+        <option value="National">National</option>
+      </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <div class="col-md-12">
+                    <button class="btn btn-danger" type="submit" [disabled]="!studentDetails.valid" placement="top" ngbToolTip="Placement on Top">Submit</button>
+                    <button class="btn btn-light" type="reset">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

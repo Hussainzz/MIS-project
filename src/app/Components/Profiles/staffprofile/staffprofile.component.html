@@ -1,0 +1,151 @@
+<br>
+
+
+<fieldset class="sidebar">
+
+    <br/>
+    <img src="assets/images/user.png" class="img-fluid" alt="Responsive image" />
+
+    <br>
+    <p></p>
+
+    <button type="button" style=" width: 110px;
+        height: 30px;
+        padding: 6px 0px;
+        border-radius: 15px;
+        text-align: center;
+        line-height: 1;
+        " class="btn btn-light btn-circle">Change Avatar
+        </button>
+    <br/><br/>
+    <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+
+
+        <div class="" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <span class="nav-item nav-link" (click)="OverviewSwitch(data.StaffId)">Overview</span>
+                <br/><br/>
+                <span class="nav-item nav-link" (click)="UpdateSwitch(data.StaffId)">Update Profile</span>
+
+            </div>
+        </div>
+    </nav>
+
+</fieldset>
+
+<fieldset class="main">
+
+
+
+    <div class="info-header">
+
+        <h1>STAFF DETAILS</h1>
+
+
+
+        <tabset style="margin-left:25%;">
+            <p></p>
+            <tab title="Personal Info">
+
+                <div>
+                    <h1>PERSONAL INFO</h1>
+                    <hr>
+
+                    <ul class="list-unstyled">
+
+
+                        <li><span>Salutation: {{data.Salutation}}</span></li>
+                        <hr>
+
+                        <li><span>First name: {{data.FirstName}}</span></li>
+                        <hr>
+
+                        <li><span>Middle name: {{data.Middle}} </span></li>
+                        <hr>
+
+                        <li><span>Last name: {{data.LastName}} </span></li>
+                        <hr>
+
+                        <li><span>Gender: {{data.Gender}} </span></li>
+                        <hr>
+
+                        <li><span>Date of birth: {{data.DateOfBirth}}</span></li>
+                        <hr>
+
+                        <li><span>Blood group: {{data.BloodGroup}} </span></li>
+                        <hr>
+
+                        <li><span>Education qualification: {{data.EducationQualification}} </span></li>
+                    </ul>
+                </div>
+            </tab>
+            <tab title="Family Info">
+                <div>
+
+                    <h1>FAMILY INFO</h1>
+                    <hr>
+
+
+                    <ul class="list-unstyled">
+
+
+                        <li><span>Address: {{data.Address}}</span></li>
+                        <hr>
+
+                        <li><span>Contact number: {{data.ContactNumber}} </span></li>
+                        <hr>
+
+                        <li><span>Email: {{data.Email}} </span></li>
+                        <hr>
+
+                        <li><span>Emergency contact name: {{data.EmergencyContactName}}</span></li>
+                        <hr>
+
+                        <li><span>Emergency contact number: {{data.EmergencyContactNumber}}</span></li>
+                        <hr>
+
+                        <li><span>Emergengy contact relationship: {{data.EmergencyContactRelationship}}</span></li>
+
+                    </ul>
+                </div>
+            </tab>
+            <tab title="Job Info">
+                <div>
+
+                    <h1>JOB INFO</h1>
+                    <hr>
+
+                    <ul class="list-unstyled">
+
+
+                        <li><span>Department: {{data.Department.DepartmentName}} </span></li>
+                        <hr>
+
+                        <li><span>Designation: {{data.Designation.DesignationName}}</span></li>
+                        <hr>
+
+                        <li><span>Date of joining: {{data.DateOfJoining}}</span></li>
+                        <hr>
+
+                        <li><span>Date of leaving: 2018</span></li>
+                        <hr>
+
+                        <li><span>Contract type: {{data.ContractType.ContractName}}</span></li>
+                        <hr>
+
+                        <li><span>Salary: {{data.Salary}}</span></li>
+                        <hr>
+                        <li><span>Notes: {{data.Notes}}</span></li>
+
+                    </ul>
+                </div>
+
+
+            </tab>
+
+        </tabset>
+
+
+    </div>
+
+</fieldset>

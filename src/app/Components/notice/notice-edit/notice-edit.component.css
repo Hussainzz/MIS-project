@@ -1,0 +1,39 @@
+form {
+    width: 140%;
+    margin-top: 7%;
+    margin-left: -2%;
+}
+
+h1 {
+    letter-spacing: 1px;
+    color: #E22E1E;
+    font-family: "Open Sans", sans-serif;
+    font-size: 12pt;
+    font-weight: bold;
+}
+
+h4 {
+    font-family: "Open Sans", sans-serif;
+    font-size: 14pt;
+}
+
+.borderless td,
+.borderless th {
+    border: none;
+}
+
+td,
+th,
+p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 11pt;
+}
+
+.formpanel {
+    border: 1px solid #ddd !important;
+    margin: 0;
+    padding: 10px;
+    position: relative;
+    border-radius: 4px;
+    padding-left: 10px!important;
+}

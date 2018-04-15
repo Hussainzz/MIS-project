@@ -1,0 +1,165 @@
+<div class="col-md-12"> 
+<div class="panel panel-primary">
+<div class="panel-body">
+<span>SEARCH STUDENTS</span>
+<hr>
+<div class="row">
+<form class="main form page" id="search">
+<div class="col-lg-12">
+<div class="col-lg-4">
+<div class="form-group">
+<label class="control-label" for="admission_id">Registration Id</label>
+<div class="controls">
+<input name="admission_id" id="admission_id" type="text" class="form-control" />
+</div>
+<span class="help-block">
+</span>
+</div>
+</div>
+</div>
+
+<div class="col-lg-12">
+<div class="col-lg-3"><label class="control-label">OR</label></div>
+</div>
+
+<div class="col-lg-12">
+<div class="col-lg-4">
+<div class="form-group ">
+<label class="control-label" for="admission_year">Admission year</label>
+<div class="controls">
+<input name="admission_year" id="admission_year" type="text" value="" class="form-control" placeholder="e.g. 2017">
+</div>
+<span class="help-block">
+</span>
+</div>
+</div>
+<div class="col-lg-4">
+<div class="form-group ">
+<label class="control-label" for="first_name">First Name</label>
+<div class="controls">
+<input name="first_name" id="first_name"  type="text" class="form-control"/>
+</div>
+<span class="help-block">
+</span>
+</div>
+</div>
+<div class="col-lg-4">
+<div class="form-group ">
+<label class="control-label" for="last_name">Last Name</label>
+<div class="controls">
+<input name="last_name" id="last_name" type="text" class="form-control"/>
+</div>
+<span class="help-block">
+</span>
+</div>
+</div>
+</div>
+<div class="col-lg-12">
+<div class="col-lg-4">
+<div class="form-group ">
+<label class="control-label" for="gender">Gender</label>
+<div class="controls">
+<select name="gender" id="gender" type="text" class="form-control">
+<option value="">(--Select Gender--)</option>
+<option value="Male">Male</option>
+<option value="Female">Female</option>
+</select>
+</div>
+<span class="help-block">
+</span>
+</div>
+</div>
+<div class="col-lg-4">
+<div class="form-group ">
+<label class="control-label" for="religion">Religion</label>
+<div class="controls">
+<input name="religion" id="religion" type="text" class="form-control"/>
+</div>
+<span class="help-block">
+</span>
+</div>
+</div>
+<div class="col-lg-4">
+<div class="form-group ">
+<label class="control-label">Stream</label>
+<div class="controls">
+<select class="form-control" name="course" id="course">
+<option value="">(Select One)</option>
+<option *ngFor= "let course of courses" [value]="course">
+{{course}}
+</option>
+</select>
+</div>
+<span class="help-block">
+</span>
+</div>
+</div>
+<div class="col-lg-4">
+<div class="form-group ">
+<label class="control-label" for="scholarship">Scholarship</label>
+<div class="controls">
+<!--<input type="checkbox" name="scholarship" id="scholarship" value="Minority,SC/ST,EBC,OBC">-->
+<select name="scholarship" id="scholarship"  class="form-control">
+<option value="">(--Select Scholarship--)</option>
+ <option value="EBC">EBC</option>
+<option value="SC/ST">SC/ST</option>
+<option value="Minority">Minority</option>
+<option value="OBC">OBC</option>
+<option value="">None</option>
+</select>
+</div>
+<span class="help-block">
+</span>
+</div>
+</div>
+<div class="col-lg-4">
+<div class="form-group ">
+<label class="control-label" for="admit_status">Admit Status</label>
+<div class="controls">
+<select name="admit_status" id="admit_status" type="text" class="form-control">
+<option value="2">Applied</option>
+<option value="1">Shortlisted</option>
+<option value="0">Admitted</option>
+</select>
+</div>
+<span class="help-block">
+</span>
+</div>
+</div>
+</div>
+<div class="col-lg-12">
+<div class="col-lg-12">
+<button type="button" onclick="shortlist_students()" class="btn btn-primary bgreenBtn" id="Search_student" >Search</button>
+<button type="reset" class="btn btn-default" id="clear_search">Clear</button>
+</div>
+</div>
+</form>
+</div>
+<br>
+<div class="col-md-12 table-responsive" id="searched_results">
+<table id="reactive-table-2" class="table table-striped table-hover table-bordered reactive-table">
+<thead>
+<tr>
+<th class="sortable admission_id" fieldid="0">
+Reg ID&nbsp;&nbsp;
+<i class="fa fa-sort-asc"></i>
+</th>
+<th class="admission_year sortable" fieldid="1">Admission year</th>
+<th class="_id sortable" fieldid="2">Student Name</th>
+<th class="gender sortable" fieldid="3">Gender</th>
+<th class="course sortable" fieldid="4">Stream</th>
+<th class="hide sortable" fieldid="5">Religion</th>
+<th class="hide sortable" fieldid="6">Sports</th>
+<!--<th class="status sortable" fieldid="7">Status</th>-->
+<th class="_id sortable" fieldid="8"></th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+
+

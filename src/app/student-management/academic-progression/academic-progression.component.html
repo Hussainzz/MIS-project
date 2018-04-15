@@ -1,0 +1,160 @@
+<div class="col-md-12" id="#main">
+<div class="panel panel-primary">
+<div class="panel-body">
+<b><a style="color: red">ACADEMIC PROGRESSION</a></b>
+<hr>
+<div class="row">
+<div class="col-md-12">
+<div class="form-group">
+<div class="col-md-4">
+<label class="control-label">Choose Stream</label>
+</div>
+<div class="col-md-8">
+<div class="controls">
+<select id="course" name="course" [(ngModel)]="course" class="form-control" #courseControl="ngModel">
+<option value="">(Select One)</option>
+<option *ngFor= "let course of courses" [value]="course">
+{{course}}
+</option>
+</select>
+</div>
+</div>
+</div>
+</div>
+</div>
+<br>
+<div class="table-toolbar"><div class="row"><div class="col-md-6"></div></div></div>
+<div class="row">
+<div class="col-md-12">
+<div class="form-group">
+<div class="col-md-4">
+<label class="control-label">Choose Old Academic year</label>
+</div>
+<div class="col-md-8">
+<div class="controls">
+<select class="form-control select2-multiple" [ngModel]="admission_year" autocomplete="off" name="admission_year" id="admission_year">
+<option value="2017">2017</option>
+<option value="2016">2016</option>
+<option value="2015">2015</option>
+</select>
+<div class="error" id="error-admission_year" style="color:red;"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<br>
+
+<div class="table-toolbar"><div class="row"><div class="col-md-6"></div></div></div>
+<div class="row">
+<div class="col-md-12">
+<div class="form-group">
+<div class="col-md-4">
+<label class="control-label">Choose current division</label>
+</div>
+<div class="col-md-8">
+<div class="controls">
+<select id="division" name="division"  class="form-control" [(ngModel)]="division">
+<option value="">(Select One)</option>
+<option *ngFor= "let division of divisions" [value]="division">
+{{division}}
+</option> 
+</select>
+</div>
+</div>
+<br><br>
+
+<div class="table-toolbar"><div class="row"><div class="col-md-6"></div></div></div>
+<div class="row">
+<div class="col-md-12">
+<div class="form-group">
+<div class="col-md-4">
+<label class="control-label">Choose old semester</label>
+</div>
+<div class="col-md-8">
+<div class="controls">
+<select id="semester" name="semester" [(ngModel)]="semester" class="form-control">
+<option value="" selected="selected">(Select One)</option>
+<option *ngFor= "let semester of semesters" [value]="semester">
+{{semester}}
+</option> 
+</select>    
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<br>
+
+<div class="table-toolbar"><div class="row"><div class="col-md-6"></div></div></div>
+<div class="row">
+<div class="col-md-12">
+<div class="form-group">
+<div class="col-md-2 right" style="float:right; text-align: right;">
+<input type="hidden" name="baseurl" id="baseurl" value="<?php echo base_url(); ?>" />
+<button type="button" onclick="shortlist_students()" class="btn btn-primary bgreenBtn" id="checkRegID">Show</button>
+</div>
+</div>
+</div>
+</div>
+<br><br>
+<br><br>
+<div class="col-md-12 table-responsive" id="searched_results">
+<table id="reactive-table-2" class="table table-striped table-hover table-bordered reactive-table">
+<thead>
+<tr>
+<th class="sortable admission_id" fieldid="0">
+Roll No&nbsp;&nbsp;
+<i class="fa fa-sort-asc"></i>
+</th>
+<th class="Name sortable" fieldid="1">Name</th>
+<th class="gender sortable" fieldid="3">Gender</th>
+<th class="hide sortable" fieldid="3">pkid </th>
+<th class="hide sortable" fieldid="3">Student Id </th>
+<th class="hide sortable" fieldid="3">Roll No </th>
+<th class="Promote sortable" fieldid="4">Promote</th>
+<th class="Fail sortable" fieldid="5">Fail</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+</div>
+<div class="table-toolbar"><div class="row"><div class="col-md-6"></div></div></div>
+
+<hr>
+
+<div class="row">
+<div class="col-lg-12 table-responsive">
+<div class="clearfix">
+<div class="reactive-table-options col-sm-8 pull-right">
+</div>
+</div>
+<table id="allocateStudentDiv" class="table table-striped table-hover table-bordered reactive-table">
+</table>
+</div>
+</div>
+
+<div class="row">
+<div class="col-md-12">
+<div class="form-group ">
+<span class="help-block">
+</span>
+</div>
+</div>
+</div>
+
+<div class="row">
+<div class="col-lg-12">
+<input type="hidden" name="save" value="1" />
+<button type="submit" class="btn btn-primary bgreenBtn" style="float:right; display:none;" id="AllocateDiv" >Allocate</button>
+<button type="submit" name="saveDraft" value="1" class="btn btn-primary bgreenBtn" style="float:right; margin-right: 5px;display:none;" id="saveDraft">Save Draft</button>&nbsp;
+</div>
+</div>
+</div>
+</div>
+</div>
+    

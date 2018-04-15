@@ -1,0 +1,17 @@
+form {
+    width: 140%;
+    margin-top: 7%;
+    margin-left: -2%;
+}
+
+a {
+    letter-spacing: 1px;
+    color: #E22E1E;
+    font-family: "Open Sans", sans-serif;
+    font-size: 12pt;
+    font-weight: bold;
+}
+
+label {
+    font-family: "Open Sans", sans-serif;
+}

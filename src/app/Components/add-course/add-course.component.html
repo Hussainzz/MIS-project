@@ -1,0 +1,52 @@
+<br>
+<form name="form" (ngSubmit)="createCourse()" #f="ngForm">
+    <fieldset class="formpanel">
+        <alert></alert>
+
+        <h1>ADD A NEW COURSE</h1>
+        <hr>
+
+        <div class="form-group">
+            <label for="courseShortName">Course Short Name</label>
+            <input required type="text" class="form-control" name="courseShortName" [(ngModel)]="model.courseShortName" #courseShortName="ngModel" required />
+        </div>
+        <div class="form-group">
+            <label for="courseFullName">Course Full Name</label>
+            <input type="text" class="form-control" name="courseFullName" [(ngModel)]="model.courseFullName" #courseFullName="ngModel" required />
+        </div>
+        <div class="form-group">
+            <label for="courseType">Course Type</label>
+            <input type="text" class="form-control" name="courseType" [(ngModel)]="model.courseType" #courseType="ngModel" required />
+        </div>
+        <div class="form-group">
+            <label for="RollPrefix">Roll Prefix</label>
+            <input type="text" class="form-control" name="RollPrefix" [(ngModel)]="model.RollPrefix" #RollPrefix="ngModel" required />
+        </div>
+        <div class="form-group">
+            <button class="btn btn-danger">Submit</button>
+        </div>
+
+        <table class="table  table-striped table-hover table-bordered reactive-table">
+            <thead>
+                <tr>
+                    <th fieldid="0">Course Short Name</th>
+                    <th fieldid="1">Course Full Name</th>
+                    <th fieldid="2">Course Type</th>
+                    <th fieldid="3">Course Roll Prefix</th>
+                    <th fieldid="4">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let Course of CourseData">
+                    <td><input type="text" value="{{Course.CourseShortName}}" [disabled]=!field #CSN></td>
+                    <td><input type="text" value="{{Course.CourseFullName}}" [disabled]=!field #CFN></td>
+                    <td><input type="text" value="{{Course.CourseType}}" [disabled]=!field #CT></td>
+                    <td><input type="text" value="{{Course.RollPrefix}}" [disabled]=!field #RP></td>
+                    <td>
+                        <span class=" glyphicon glyphicon-edit" (click)="Enter(Course,CSN,CFN,CT,RP)"></span> &nbsp;&nbsp;
+                        <span class=" glyphicon glyphicon-trash " (click)="Delete(Course)"></span></td>
+                </tr>
+            </tbody>
+        </table>
+    </fieldset>
+</form>

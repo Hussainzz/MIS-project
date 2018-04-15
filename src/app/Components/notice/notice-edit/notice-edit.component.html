@@ -1,0 +1,54 @@
+<br>
+<form>
+    <alert></alert>
+    <fieldset class="formpanel">
+        <p></p>
+
+        <h1>EDIT NOTICE</h1>
+
+        <hr>
+
+        <br>
+
+        <table class='table borderless'>
+
+            <tr>
+                <td><b>Select Type:</b></td>
+                <td>
+                    <select class="form-control" #selectedTopic>
+            <option value="">(Select One)</option>
+            <option *ngFor="let data of noticeTypes" value="{{data.Ntid}}" selected="data.Ntid == notices.NoticeType.Ntid">{{data.NoticeTypeName}}</option>
+            <!--  value="ST22">Exam</option>
+            <option value="ST10">Attendance</option>
+            <option value="ST15">Event</option>
+            <option value="ST18">Marks</option>
+            <option value="ST3">General</option>
+            <option value="ST13">Sample</option> -->
+          </select></td>
+                <!-- <select name="selectmake" [(ngModel)]="makeListFilter" #makeListFilter>
+            <option *ngFor="let muscleCar of datas" [ngValue]="muscleCar.Ntid">{{muscleCar.noticeTypeName}}</option>
+          </select> -->
+
+            </tr>
+
+
+        </table>
+
+        <br>
+
+        <input #NoticeTitle name="NoticeTitle" value="{{notices.NoticeTitle}}" type="text" placeholder="Notice title" class="form-control">
+
+        <br>
+
+        <textarea #NoticeDesc name="NoticeDesc" value="{{notices.NoticeContent}}" class="form-control note-editable" rows="7"></textarea>
+
+        <br>
+        <!-- makeListFilter -->
+        <button type="submit" class="btn btn-danger" (click)="editNotice(NoticeTitle, selectedTopic, NoticeDesc)">Edit</button> &nbsp;
+        <button type="reset" class="btn btn-light">Cancel</button>
+
+
+
+    </fieldset>
+    <br>
+</form>

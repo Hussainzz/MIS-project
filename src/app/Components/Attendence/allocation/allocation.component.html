@@ -1,0 +1,162 @@
+<form (ngSubmit)="onSubmit(AttendenceAllocation)" #AttendenceAllocation="ngForm">
+    <alert></alert>
+    <fieldset class="formpanel">
+
+        <div class="info-header">
+
+            <h1>Attendance Allocation</h1>
+
+
+            <ul class="nav nav-tabs links">
+                <li class="nav-item">
+                    <a class="nav-link active " style=" color: #333;" (click)="JumpToAllocate()">Allocate</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " style=" color: #333;" (click)="JumpToView()">View</a>
+                </li>
+
+
+            </ul>
+
+            <hr class="head">
+
+        </div>
+
+
+        <span style="font-size:11pt"><b>Allocate:</b></span>
+
+        <table class="table borderless">
+
+            <!--         <td>
+                <div class="form-group" [class.has-error]="Date_Of_JoiningControl.invalid && Date_Of_JoiningControl.touched">
+                    <label class="control-label">Date Of Joining</label>
+                    <input required id="Date_Of_Joining" type="date" name="Date_Of_Joining" class="form-control " [(ngModel)]="Date_Of_Joining" #Date_Of_JoiningControl="ngModel">
+                    <span class="help-block" style="color:red" *ngIf="Date_Of_JoiningControl.errors?.required && Date_Of_JoiningControl.touched">
+Date Of Joining Required
+</span></div>
+            </td> -->
+
+            <tr>
+                <td>
+                    <div class="form-group" [class.has-error]="academic_yearControl.invalid && academic_yearControl.touched">
+                        <label class="control-label">Academic Year*</label>
+                        <select required id="AcademicYear" name="AcademicYear" class="form-control" [(ngModel)]="AcademicYear" #academic_yearControl="ngModel">
+                    <option value="" selected="selected">(Select One)</option>
+                    <option *ngFor= "let year of years" value="{{year}}">{{year}}</option>
+                  </select>
+                        <span class="help-block" style="color:red" *ngIf="academic_yearControl.errors?.required && academic_yearControl.touched">
+                    Academic Year Required
+                  </span></div>
+                </td>
+
+                <td>
+                    <div class="form-group" [class.has-error]="semesterControl.invalid && semesterControl.touched">
+                        <label class="control-label">Semester*</label>
+                        <select required id="Semester" name="Semester" class="form-control" [(ngModel)]="Semester" #semesterControl="ngModel">
+                      <option value="" selected="selected">(Select One)</option>
+                      <option *ngFor= "let semester of semesters" value="{{semester}}">{{semester}}</option>
+                    </select>
+                        <span class="help-block" style="color:red" *ngIf="semesterControl.errors?.required && semesterControl.touched">
+                        Semester Required
+                      </span></div>
+
+                </td>
+
+                <td>
+                    <div class="form-group" [class.has-error]="divisionControl.invalid && divisionControl.touched">
+                        <label class="control-label">Division*</label>
+                        <select required id="Divsion" name="Division" class="form-control" [(ngModel)]="Division" #divisionControl="ngModel">
+                      <option value="" selected="selected">(Select One)</option>
+                      <option *ngFor= "let Division of Divisions" value="{{Division.Did}}">{{Division.DivisionName}}</option>
+                    </select>
+                        <span class="help-block" style="color:red" *ngIf="divisionControl.errors?.required && divisionControl.touched">
+                        Division Required
+                      </span></div>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <div class="form-group" [class.has-error]="subjectControl.invalid && subjectControl.touched">
+                        <label class="control-label">Subject*</label>
+                        <select required id="Subject" name="Subject" class="form-control" [(ngModel)]="Subject" #subjectControl="ngModel">
+                      <option value="" selected="selected">(Select One)</option>
+                      <option *ngFor= "let Subject of Subjects" value="{{Subject.Subid}}">{{Subject.SubjectName}}</option>
+                    </select>
+                        <span class="help-block" style="color:red" *ngIf="subjectControl.errors?.required && subjectControl.touched">
+                        Subject Required
+                      </span></div>
+                </td>
+
+
+                <td>
+                    <div class="form-group" [class.has-error]="staffControl.invalid && staffControl.touched">
+                        <label class="control-label">Staff Code*</label>
+                        <select required id="Staff" name="Staff" class="form-control" [(ngModel)]="Staff" #staffControl="ngModel">
+                      <option value="">(Select One)</option>
+                      <option *ngFor= "let Staff of Staffs" value="{{Staff.StaffId}}">{{Staff.StaffCode}} {{Staff.FirstName}} {{Staff.LastName}}</option>
+                    </select>
+                        <span class="help-block" style="color:red" *ngIf="staffControl.errors?.required && staffControl.touched">
+                        Staff Code Required
+                      </span></div>
+                </td>
+
+
+
+                <td>
+                    <div class="form-group" [class.has-error]="sessionControl.invalid && sessionControl.touched">
+                        <label class="control-label">Sessions*</label>
+                        <input required pattern="^[1-8](,[1-8])*$" name="Sessions" type="text" placeholder="e.g.1,2,3,4" class="form-control" [(ngModel)]="Sessions" #sessionControl="ngModel">
+                        <span class="help-block" style="color:red" *ngIf="sessionControl.errors?.required && sessionControl.touched">
+                           Sessions Required
+                          </span>
+                        <span class="help-block" style="color:red" *ngIf="sessionControl.errors?.pattern && sessionControl.touched">
+                       Session should be a number
+                             </span></div>
+                </td>
+
+            </tr>
+
+            <button type="submit" class="btn btn-danger" [disabled]="!AttendenceAllocation.valid">Allocate</button>&nbsp;&nbsp;
+            <button type="reset" class="btn btn-light">Cancel</button>
+
+
+        </table>
+
+        <hr>
+
+        <span style="font-size:11pt"><b>Showing the latest allocations. To see all go to View</b></span>
+        <br>
+        <br>
+
+
+
+
+        <table class="table table-striped table-hover table-bordered reactive-table">
+            <thead>
+                <tr>
+                    <th fieldid="0">Academic Year</th>
+                    <th fieldid="1">Semester</th>
+                    <th fieldid="2">Division</th>
+                    <th fieldid="3">Subject</th>
+                    <th fieldid="4">Staff</th>
+                    <th fieldid="4">Session No.</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let Allocation of Allocations">
+                    <td>{{Allocation.AcademicYear}}</td>
+                    <td>{{Allocation.Semester}}</td>
+                    <td>{{Allocation.Division.DivisionName}}</td>
+                    <td>{{Allocation.Subjects.SubjectName}}</td>
+                    <td>{{Allocation.StaffMember.StaffCode}}</td>
+                    <td>{{Allocation.SessionNumbers}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+
+
+
+    </fieldset>
+</form>

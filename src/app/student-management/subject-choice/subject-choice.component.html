@@ -1,0 +1,25 @@
+<div class="panel panel-primary">
+<div class="panel-body">
+<div class="col-md-12" id="#main">
+<span  style="color:red"><b>CHOOSE OPTIONAL SUBJECTS</b></span>
+<ul class="nav navbar-nav navbar-right">
+<li class="active">
+<a routerLink="individual" data-toggle="tab" id="tab-choice">Individual</a>
+</li>
+<li>
+<a  routerLink="bulk" data-toggle="tab" id="tab-choice">Bulk</a>
+</li>
+<hr>
+</ul>
+&nbsp;
+<br>
+<div class="col-md-12">
+<router-outlet></router-outlet>
+</div>
+<div class="col-md-12">
+<button class="btn btn-default" type="button" id="cancelBulkSubjectOption" style="float:right">Cancel</button>
+</div>
+</div>
+</div>
+</div>
+

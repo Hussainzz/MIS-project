@@ -1,0 +1,80 @@
+<br>
+<form (ngSubmit)="onSubmit(notice)" #notice="ngForm">
+    <alert></alert>
+    <fieldset class="formpanel">
+        <p></p>
+
+        <h1>NEW NOTICE</h1>
+
+        <hr>
+
+        <br>
+
+        <table class='table borderless'>
+            <!--     <td colspan="2">
+                <div class="form-group" [class.has-error]="contractControl.invalid && contractControl.touched">
+                    <label class="control-label">Contract Type*</label>
+                    <select required id="Contract_Type" name="Contract_Type" class="form-control" [(ngModel)]="Contract_Type" #contractControl="ngModel">
+                  <option value="" selected="selected">(Select One)</option>
+                  <option *ngFor= "let ContractType of ContractTypes " value="{{ContractType.Cid}} ">{{ContractType.ContractName}}</option>
+                </select>
+                    <span class="help-block" style="color:red" *ngIf="contractControl.errors?.required && contractControl.touched">
+                  Contract Type Required</span>
+                </div>
+            </td> -->
+
+            <tr>
+                <td>
+                    <div class="form-group" [class.has-error]="typeControl.invalid && typeControl.touched">
+                        <label class="control-label">Select Type</label>
+                        <select required id="type" name="type" class="form-control" #selectedTopic [(ngModel)]="type" #typeControl="ngModel">
+            <option value="" selected="selected">(Select One)</option>
+            <option *ngFor="let data of datas" value="{{data.Ntid}}">{{data.NoticeTypeName}}</option>
+            <!--  value="ST22">Exam</option>
+            <option value="ST10">Attendance</option>
+            <option value="ST15">Event</option>
+            <option value="ST18">Marks</option>
+            <option value="ST3">General</option>
+            <option value="ST13">Sample</option> -->
+          </select>
+                        <span class="help-block" style="color:red" *ngIf="typeControl.errors?.required && typeControl.touched">
+          Select One Type
+        </span>
+                    </div>
+                </td>
+                <!-- <select name="selectmake" [(ngModel)]="makeListFilter" #makeListFilter>
+            <option *ngFor="let muscleCar of datas" [ngValue]="muscleCar.Ntid">{{muscleCar.noticeTypeName}}</option>
+          </select> -->
+
+            </tr>
+
+
+        </table>
+
+        <br>
+        <div class="form-group" [class.has-error]="titleControl.invalid && titleControl.touched">
+            <label class="control-label"></label>
+            <input required type="text" name="title" placeholder="Notice title" class="form-control" #NoticeTitle [(ngModel)]="title" #titleControl="ngModel">
+            <span class="help-block" style="color:red" *ngIf="titleControl.errors?.required && titleControl.touched">
+    Please enter Notice Title
+  </span>
+        </div>
+
+        <br>
+        <div class="form-group" [class.has-error]="descriptionControl.invalid && descriptionControl.touched">
+            <label class="control-label"></label>
+            <textarea required class="form-control note-editable" name="description" rows="7" #NoticeDesc [(ngModel)]="description" #descriptionControl="ngModel"></textarea>
+            <span class="help-block" style="color:red" *ngIf="descriptionControl.error?.required && descriptionControl.touched">
+        Please enter notice content
+        </span></div>
+
+        <br>
+        <!-- makeListFilter -->
+        <button type="submit" class="btn btn-danger" (click)="createNotice(selectedTopic,NoticeTitle, NoticeDesc)" [disabled]="!notice.valid">Add</button>
+        <button type="reset" class="btn btn-light" (click)="clear()">Cancel</button>
+
+
+
+    </fieldset>
+    <br>
+</form>

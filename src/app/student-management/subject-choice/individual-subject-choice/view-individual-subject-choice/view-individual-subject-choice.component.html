@@ -1,0 +1,108 @@
+<br>
+<form>
+    <alert></alert>
+    <fieldset class="formpanel">
+
+
+        <div class="info-header">
+
+            <h1>VIEW SUBJECT CHOICE</h1>
+
+
+            <ul class="nav nav-tabs links">
+                <li class="nav-item">
+                    <a class="nav-link " style=" color: #333;" (click)="View()">View Choice</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" style=" color: #333;" (click)="Add()">Add Choice</a>
+                </li>
+
+
+            </ul>
+
+
+            <hr class="head">
+
+        </div>
+
+
+        <table class='table borderless'>
+
+            <tr>
+                <td><b>Roll No:</b></td>
+                <td><input type="text" class="form-control" name="RollNo" #RollNo>
+                </td>
+            </tr>
+            <!--
+
+            <tr>
+                <td><b>Or Subject:</b></td>
+                <td>
+                    <select class="form-control" #selectedTopic>
+                    <option value="">(Select One)</option>
+                    <option *ngFor="let data of Subjects" value="{{data.Subid}}">{{data.SubjectName}}</option>
+                  </select>
+                </td>
+            </tr> -->
+
+        </table>
+
+        <button class="btn btn-danger " (click)="showrec=!showrec">Students List</button>
+        <div *ngIf="showrec">
+            <table id="ViewSubjectChoice " class="table table-striped table-responsive table-hover table-bordered reactive-table ">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>RollNo</th>
+                        <th>Course</th>
+                        <th>Division</th>
+                    </tr>
+
+
+
+                </thead>
+                <tbody id="tableBody ">
+
+                    <tr *ngFor="let Student of Students ">
+                        <td>{{Student.FirstName}} {{Student.MiddleName}} {{Student.LastName}}</td>
+                        <td>{{Student.RollNo}}</td>
+                        <td>{{Student.Course.CourseShortName}}</td>
+                        <td>{{Student.Division.DivisionName}}</td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+        <button type="submit" class="btn btn-danger" (click)="SearchChoices(RollNo)">Search</button> <br>
+
+        <br>
+        <table id="ViewSubjectChoice " class="table table-striped table-responsive table-hover table-bordered reactive-table ">
+            <thead>
+                <tr>
+                    <th>Subject</th>
+                    <th>RollNo</th>
+                    <th>Course</th>
+                    <th>Division</th>
+                    <th>Action</th>
+                </tr>
+
+
+
+            </thead>
+            <tbody id="tableBody ">
+
+                <tr *ngFor="let SubjectChoice of SubjectChoices ">
+                    <td>{{SubjectChoice.Subjects.SubjectName}}</td>
+                    <td>{{SubjectChoice.StudentDetails.RollNo}}</td>
+                    <td>{{SubjectChoice.StudentDetails.Course.CourseShortName}}</td>
+                    <td>{{SubjectChoice.StudentDetails.Division.DivisionName}}</td>
+                    <td><span class=" glyphicon glyphicon-trash " (click)="Delete(SubjectChoice) "></span></td>
+                </tr>
+
+            </tbody>
+        </table>
+
+    </fieldset>
+
+</form>

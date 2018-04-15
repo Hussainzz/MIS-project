@@ -1,0 +1,492 @@
+<br>
+
+
+<fieldset class="sidebar">
+
+    <br>
+
+    <img src="assets/images/user.png" class="img-fluid" alt="Responsive image" />
+    <br>
+    <p></p>
+    <button type="button" style=" width: 110px;
+            height: 30px;
+            padding: 6px 0px;
+            border-radius: 15px;
+            text-align: center;
+            line-height: 1;
+            " class="btn btn-light btn-circle">Change Avatar
+            </button>
+    <br/><br/>
+    <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+
+
+        <div class="" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" (click)="ProfileSwitch(data.Sid)">Overview</a>
+                <br/><br/>
+                <a class="nav-item nav-link" (click)="UpdateSwitch(data.Sid)">Update Profile</a>
+
+
+            </div>
+        </div>
+    </nav>
+
+</fieldset>
+
+
+
+<fieldset class="main">
+
+
+    <div class="info-header">
+
+        <h1>STUDENT DETAILS</h1>
+
+
+        <tabset style="margin-left:25%;">
+            <p></p>
+            <tab title="Personal Info">
+
+                <div>
+                    <h1>PERSONAL INFO</h1>
+                    <hr>
+
+                    <ul class="list-unstyled">
+
+
+                        <li><span>Name: {{data.LastName}} {{data.FirstName}} {{data.MiddleName}}</span></li>
+                        <hr>
+
+                        <li><span>Date of Birth: {{data.Dob}}</span></li>
+                        <hr>
+
+                        <li><span>Place of Birth: {{data.PlaceOfBirth}} </span></li>
+                        <hr>
+
+                        <li><span>Religion: {{data.Religon}} </span></li>
+                        <hr>
+
+                        <li><span>Nationality: {{data.Nationality}}</span></li>
+                        <hr>
+
+                        <li><span>Marital Status: {{data.MaritalStatus}} </span></li>
+                        <hr>
+
+                        <li><span>Gender: {{data.Gender}} </span></li>
+                        <hr>
+
+                        <li><span>Caste/ Category: {{data.Category}}</span></li>
+                        <hr>
+
+                        <li><span>Mobile no: {{data.MobileNumber}}</span></li>
+                        <hr>
+
+
+                        <li><span>Your Email Id: {{data.Email}}</span></li>
+                        <hr>
+
+                        <li><span>Blood Group: {{data.BloodGroup}}</span></li>
+
+
+                    </ul>
+                </div>
+            </tab>
+            <tab title="Family Info">
+                <div>
+
+                    <h1>FAMILY INFO</h1>
+                    <hr>
+
+
+                    <ul class="list-unstyled">
+
+
+                        <li><span>Father's Name: {{data.FatherName}}</span></li>
+                        <hr>
+
+                        <li><span>Father's Occupation: {{data.FatherOccupation}}</span></li>
+                        <hr>
+
+                        <li><span>Mother's Name: {{data.MotherName}}</span></li>
+                        <hr>
+
+                        <li><span>Mother's Occupation: {{data.MotherOccupation}}</span></li>
+                        <hr>
+
+                        <li><span>Landline number: {{data.LandLineNumber}}</span></li>
+                        <hr>
+
+                        <li><span>Parent Mobile Number: {{data.ParentMobileNumber}}</span></li>
+                        <hr>
+
+                        <li><span>Address: {{data.ResidentialAddress}}</span></li>
+                        <hr>
+
+
+                        <li><span>Parent's Email Id: {{data.ParentEmail}}</span></li>
+                        <hr>
+
+                        <li><span>Guardian's Name: {{data.GuardianName}}</span></li>
+                        <hr>
+
+                        <li><span>Guardian's Relation: {{data.Relation}}</span></li>
+                        <hr>
+
+                        <li><span>Guardian's Address: {{data.GuardianAddress}}</span></li>
+                    </ul>
+                </div>
+            </tab>
+            <tab title="Educational Info">
+                <div>
+
+                    <h1>EDUCATIONAL INFO</h1>
+                    <hr>
+
+                    <ul class="list-unstyled">
+
+
+                        <li><span style="color:rgb(0, 255, 179); font-weight: bold;">SSC</span></li>
+                        <hr class="head">
+
+                        <li><span>Board/School: {{data.SscBoard}}</span></li>
+                        <hr>
+
+                        <li><span>Year of Passing: {{data.SscYearOfPassing}}</span></li>
+                        <hr>
+
+                        <li><span>Seat Number: {{data.SscSeatNo}}</span></li>
+                        <hr>
+
+                        <li><span>Marks Obtained: {{data.SscTotalMarks}}</span></li>
+                        <hr>
+
+                        <li><span>Marks Out Of: {{data.SscMarkOutOf}}</span></li>
+                        <hr>
+
+                        <li><span>Percentage: {{data.SscPercentage}}</span></li>
+                        <hr>
+
+                        <li><span>Class Obtained: {{data.SscClassObtained}}</span></li>
+                        <hr>
+
+                        <li><span style="color:rgb(0, 255, 179); font-weight: bold;">HSSC</span></li>
+                        <hr class="head">
+
+                        <li><span>Board/HSSc: {{data.HsscBoard}}</span></li>
+                        <hr>
+
+                        <li><span>HSSc Stream: {{data.HsscStream}}</span></li>
+                        <hr>
+
+                        <li><span>Year of Passing: {{data.HsscYearOfPassing}}</span></li>
+                        <hr>
+
+                        <li><span>Seat Number: {{data.HsscSeatNo}}</span></li>
+                        <hr>
+
+                        <li><span>Marks Obtained: {{data.HsscTotalMarks}}</span></li>
+                        <hr>
+
+                        <li><span>Marks Out Of: {{data.HsscMarkOutOf}}</span></li>
+                        <hr>
+
+                        <li><span>Percentage: {{data.HsscPercentage}}</span></li>
+                        <hr>
+
+                        <li><span>Class Obtained: {{data.HsscClassObtained}}</span></li>
+
+                    </ul>
+                </div>
+
+
+
+            </tab>
+            <tab title="Subject Info">
+                <div>
+
+                    <h1>SUBJECTS INFO</h1>
+                    <hr>
+
+                    <ul class="list-unstyled">
+
+
+                        <li><span style=" font-weight: bold;">Compulsory Subjects</span></li>
+                        <hr>
+
+
+                    </ul>
+
+                    <ul class="list-unstyled" style="margin-left:55%; margin-top:-5.7%;">
+
+
+                        <li><span style=" font-weight: bold;">Optional Subjects</span></li>
+                        <hr>
+
+                        <li><span style=" font-weight: bold;">Semester 5</span></li>
+                        <hr>
+                        <li><span>Web Technology Laboratory</span></li>
+                        <hr>
+                        <li><span>Project Work</span></li>
+                        <hr>
+                        <li><span>Web Technology</span></li>
+                        <hr>
+                        <li><span>Web Technology Laboratory</span></li>
+                        <hr>
+                        <li><span style=" font-weight: bold;">Semester 6</span></li>
+                        <hr>
+                        <li><span>Multimedia Technology</span></li>
+                        <hr>
+                        <li><span>Management Information Systems</span></li>
+                        <hr>
+                        <li><span>Information Systems Audit</span></li>
+                        <hr>
+                        <li><span>Information Systems Audit</span></li>
+                        <hr>
+
+
+
+
+
+                    </ul>
+                </div>
+
+
+
+            </tab>
+
+
+
+        </tabset>
+
+
+    </div>
+
+</fieldset>
+<!--
+        <ul class="nav nav-tabs links">
+            <li class="nav-item">
+                <a class="nav-link " style=" color: #333;" (click)="show1=!show1">Personal Info</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" style=" color: #333;" (click)="show2=!show2">Family Info</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" style=" color: #333;" (click)="show3=!show3">Qualifiation Details</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" style=" color: #333;" (click)="show4=!show4">Subjects</a>
+            </li>
+        </ul>
+
+
+        <hr class="head">
+
+    </div>
+
+    <div id="staff_display_body">
+
+        <div *ngIf="show1" class="tab-pane " id="display_per_info">
+            <h1>Personal Details</h1>
+
+
+            <ul class="list-unstyled">
+
+
+                <li><span>Name: {{data.LastName}} {{data.FirstName}} {{data.MiddleName}}</span></li>
+                <hr>
+
+                <li><span>Date of Birth: {{data.Dob}}</span></li>
+                <hr>
+
+                <li><span>Place of Birth: {{data.PlaceOfBirth}} </span></li>
+                <hr>
+
+                <li><span>Religion: {{data.Religon}} </span></li>
+                <hr>
+
+                <li><span>Nationality: {{data.Nationality}}</span></li>
+                <hr>
+
+                <li><span>Marital Status: {{data.MaritalStatus}} </span></li>
+                <hr>
+
+                <li><span>Gender: {{data.Gender}} </span></li>
+                <hr>
+
+                <li><span>Caste/ Category: {{data.Category}}</span></li>
+                <hr>
+
+                <li><span>Mobile no: {{data.MobileNumber}}</span></li>
+                <hr>
+
+
+                <li><span>Your Email Id: {{data.Email}}</span></li>
+                <hr>
+
+                <li><span>Blood Group: {{data.BloodGroup}}</span></li>
+
+
+            </ul>
+        </div>
+        <br>
+
+        <div *ngIf="show2" class="tab-pane " id="display_family_info">
+            <h1>FAMILY DETAILS</h1>
+
+
+            <ul class="list-unstyled">
+
+
+                <li><span>Father's Name: {{data.FatherName}}</span></li>
+                <hr>
+
+                <li><span>Father's Occupation: {{data.FatherOccupation}}</span></li>
+                <hr>
+
+                <li><span>Mother's Name: {{data.MotherName}}</span></li>
+                <hr>
+
+                <li><span>Mother's Occupation: {{data.MotherOccupation}}</span></li>
+                <hr>
+
+                <li><span>Landline number: {{data.LandLineNumber}}</span></li>
+                <hr>
+
+                <li><span>Parent Mobile Number: {{data.ParentMobileNumber}}</span></li>
+                <hr>
+
+                <li><span>Address: {{data.ResidentialAddress}}</span></li>
+                <hr>
+
+
+                <li><span>Parent's Email Id: {{data.ParentEmail}}</span></li>
+                <hr>
+
+                <li><span>Guardian's Name: {{data.GuardianName}}</span></li>
+                <hr>
+
+                <li><span>Guardian's Relation: {{data.Relation}}</span></li>
+                <hr>
+
+                <li><span>Guardian's Address: {{data.GuardianAddress}}</span></li>
+            </ul>
+        </div>
+        <br>
+
+
+        <div *ngIf="show3" class="tab-pane " id="display_Education_info">
+            <h1>Educational Details</h1>
+
+            <ul class="list-unstyled">
+
+
+                <li><span style="color:rgb(0, 255, 179); font-weight: bold;">SSC</span></li>
+                <hr class="head">
+
+                <li><span>Board/School: {{data.SscBoard}}</span></li>
+                <hr>
+
+                <li><span>Year of Passing: {{data.SscYearOfPassing}}</span></li>
+                <hr>
+
+                <li><span>Seat Number: {{data.SscSeatNo}}</span></li>
+                <hr>
+
+                <li><span>Marks Obtained: {{data.SscTotalMarks}}</span></li>
+                <hr>
+
+                <li><span>Marks Out Of: {{data.SscMarkOutOf}}</span></li>
+                <hr>
+
+                <li><span>Percentage: {{data.SscPercentage}}</span></li>
+                <hr>
+
+                <li><span>Class Obtained: {{data.SscClassObtained}}</span></li>
+                <hr>
+
+                <li><span style="color:rgb(0, 255, 179); font-weight: bold;">HSSC</span></li>
+                <hr class="head">
+
+                <li><span>Board/HSSc: {{data.HsscBoard}}</span></li>
+                <hr>
+
+                <li><span>HSSc Stream: {{data.HsscStream}}</span></li>
+                <hr>
+
+                <li><span>Year of Passing: {{data.HsscYearOfPassing}}</span></li>
+                <hr>
+
+                <li><span>Seat Number: {{data.HsscSeatNo}}</span></li>
+                <hr>
+
+                <li><span>Marks Obtained: {{data.HsscTotalMarks}}</span></li>
+                <hr>
+
+                <li><span>Marks Out Of: {{data.HsscMarkOutOf}}</span></li>
+                <hr>
+
+                <li><span>Percentage: {{data.HsscPercentage}}</span></li>
+                <hr>
+
+                <li><span>Class Obtained: {{data.HsscClassObtained}}</span></li>
+
+            </ul>
+        </div>
+
+
+        <div *ngIf="show4" class="tab-pane " id="subject_info">
+
+            <ul class="list-unstyled">
+
+
+                <li><span style=" font-weight: bold;">Compulsory Subjects</span></li>
+                <hr>
+
+
+            </ul>
+
+            <ul class="list-unstyled" style="margin-left:55%; margin-top:-5.7%;">
+
+
+                <li><span style=" font-weight: bold;">Optional Subjects</span></li>
+                <hr>
+
+                <li><span style=" font-weight: bold;">Semester 5</span></li>
+                <hr>
+                <li><span>Web Technology Laboratory</span></li>
+                <hr>
+                <li><span>Project Work</span></li>
+                <hr>
+                <li><span>Web Technology</span></li>
+                <hr>
+                <li><span>Web Technology Laboratory</span></li>
+                <hr>
+                <li><span style=" font-weight: bold;">Semester 6</span></li>
+                <hr>
+                <li><span>Multimedia Technology</span></li>
+                <hr>
+                <li><span>Management Information Systems</span></li>
+                <hr>
+                <li><span>Information Systems Audit</span></li>
+                <hr>
+                <li><span>Information Systems Audit</span></li>
+                <hr>
+
+
+
+
+
+            </ul>
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+
+
+</fieldset> -->

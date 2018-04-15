@@ -1,0 +1,69 @@
+<br>
+<form>
+    <alert></alert>
+    <fieldset class="formpanel">
+
+
+        <h1>NOTICES</h1>
+
+        <hr>
+
+        <h4><b>Search for specific notice</b></h4> <br>
+        <table class='table borderless'>
+
+            <tr>
+                <td><b>Notice Code:</b></td>
+                <td><input #code type="text" class="form-control" value=""></td>
+            </tr>
+
+            <tr>
+                <td><b>Or Type:</b></td>
+                <td>
+                    <select class="form-control" #selectedTopic>
+                    <option value="">(Select One)</option>
+                    <option *ngFor="let data of datas" value="{{data.Ntid}}">{{data.NoticeTypeName}}</option>
+                  </select>
+                </td>
+            </tr>
+
+        </table>
+
+
+        <button type="submit" class="btn btn-danger" (click)="SearchNotice(code,selectedTopic)">Search</button> <br>
+
+        <br>
+        <table id="searchNoticeView" class="table table-striped table-hover table-bordered reactive-table">
+            <thead>
+                <tr>
+                    <th class="sortable notice_code" fieldid="0">
+                        Code&nbsp;&nbsp;
+
+                    </th>
+                    <th class="date_from sortable" fieldid="1">From</th>
+                    <th class="title sortable" fieldid="3">Title</th>
+                    <th class="Notice_board_details.0.type sortable" fieldid="4">Type</th>
+                    <th class="Notice_board_details.0.nb_code sortable" fieldid="5">Notice Board</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+                <tr *ngFor="let notice of notices">
+                    <td>{{notice. Nid}}</td>
+                    <td>{{notice.NoticeCreatedAt}}</td>
+                    <td>{{notice.NoticeTitle}}</td>
+                    <td>{{notice.NoticeType.NoticeTypeName}}</td>
+                    <td>{{notice.NoticeContent}}</td>
+                    <td><span class="glyphicon glyphicon-edit" (click)="editNotice(notice)"></span></td>
+                    <td><span class="glyphicon glyphicon-trash" (click)="deleteNotice(notice)"></span></td>
+                </tr>
+
+
+
+            </thead>
+            <tbody id="tableBody">
+
+            </tbody>
+        </table>
+
+    </fieldset>
+
+</form>

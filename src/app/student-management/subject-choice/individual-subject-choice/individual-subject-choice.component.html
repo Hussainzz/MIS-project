@@ -1,0 +1,124 @@
+<br>
+<form (ngSubmit)="onSubmit(subjectChoice)" #subjectChoice="ngForm">
+
+
+    <fieldset class="formpanel">
+
+
+        <div class="info-header">
+
+            <h1>ADD SUBJECT CHOICE</h1>
+
+
+            <ul class="nav nav-tabs links">
+                <li class="nav-item">
+                    <a class="nav-link " style=" color: #333;" (click)="View()">View Choice</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" style=" color: #333;" (click)="Add()">Add Choice</a>
+                </li>
+
+
+            </ul>
+
+            <hr class="head">
+
+        </div>
+
+
+
+
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="form-group" [class.has-error]="rollNumberControl.invalid && rollNumberControl.touched">
+                    <label class="control-label">Roll No</label>
+                    <input required id="rollNumber" name="rollNumber" type="text" class="form-control" #RN [(ngModel)]="rollNumber" #rollNumberControl="ngModel">
+                    <span class="help-block" style="color:red" *ngIf="rollNumberControl.errors?.required && rollNumberControl.touched">
+                        Roll Number Required</span>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="form-group" [class.has-error]="semesterControl.invalid && semesterControl.touched">
+                    <label class="control-label">
+Semester
+</label>
+                    <select required id="semester" name="semester" class="form-control" #Sem [(ngModel)]="semester" #semesterControl="ngModel">
+<option value="" selected="selected">(Select One)</option>
+<option *ngFor= "let semester of semesters" value="{{semester}}">
+{{semester}}
+</option>
+</select>
+                    <span class="help-block" style="color:red" *ngIf="semesterControl.errors?.required && semesterControl.touched">
+    Semester  Required</span>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="form-group" [class.has-error]="academicyearControl.invalid && academicyearControl.touched">
+                    <label class="control-label">Academic Year</label>
+                    <input required id="academicyear" name="academicyear" type="text" class="form-control" placeholder="eg:2016" #AY [(ngModel)]="academicyear" #academicyearControl="ngModel">
+
+                    <span class="help-block" style="color:red" *ngIf="academicyearControl.errors?.required && academicyearControl.touched">
+  Academic Year Required</span>
+                </div>
+            </div>
+
+            <div class="col-lg-3">
+                <button type="submit" class="btn btn-danger" (click)="check(RN,Sem,AY)" [disabled]="!subjectChoice.valid">Search</button>
+            </div>
+        </div>
+        <br>
+        <!--display only if search button is clicked pull data from database-->
+        <div>
+            <div class="col-lg-12" id="studentDetailBlock">
+                <!--;-->
+                <div class="well well-lg">
+                    <p class="row">
+                        <span class="col-md-4">Registration no : {{Data.RegistrationId}}</span>
+                        <span class="col-md-4" id="studentregistrationNumber">
+</span>
+                        <span class="col-md-4">Course : {{Data.Course.CourseShortName}}</span>
+                        <span class="col-md-4" id="studentCourseName">
+</span>
+                    </p>
+                </div>
+            </div>
+            <br>
+            <hr>
+        </div>
+
+    </fieldset>
+</form>
+
+<form (ngSubmit)="onSubmit(Subjectschoice1)" #Subjectschoice1="ngForm">
+    <fieldset class="formpanel">
+        <alert></alert>
+
+        <br>
+
+        <div class="form-group" [class.has-error]="subjectControl.invalid && subjectControl.touched">
+            <label class="control-label">
+Subject Choice
+</label>
+            <select required id="subject" name="subject" class="form-control" #Sub [(ngModel)]="Subject" #subjectControl="ngModel">
+<option value="" selected="selected">(Choose Subjects)</option>
+<option *ngFor= "let Subject of Subjects" value="{{Subject.Subid}}">
+    {{Subject.SubjectName}}
+</option>
+</select>
+            <span class="help-block" style="color:red" *ngIf="subjectControl.errors?.required && subjectControl.touched">
+    Please Choose a Subject</span>
+        </div>
+
+
+        <br>
+        <button class="btn btn-danger" type="submit" (click)="Submit(Sub)" [disabled]="!Subjectschoice1.valid">Submit</button>
+        <!-- <input class="btn btn-danger " type="submit " value="Submit " (click)="Submit(Sub)" [disabled]="!subjectChoice1.valid"> -->
+
+
+        <alert></alert>
+
+
+    </fieldset>
+</form>

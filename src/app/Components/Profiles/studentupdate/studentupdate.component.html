@@ -1,0 +1,325 @@
+<br>
+
+
+<fieldset class="sidebar">
+
+    <br/>
+    <img src="assets/images/user.png" class="img-fluid" alt="Responsive image" />
+    <br>
+    <p></p>
+    <button type="button" style=" width: 110px;
+            height: 30px;
+            padding: 6px 0px;
+            border-radius: 15px;
+            text-align: center;
+            line-height: 1;
+            " class="btn btn-light btn-circle">Change Avatar
+            </button>
+    <br/><br/>
+    <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+
+
+        <div class="" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" (click)="ProfileSwitch(data.Sid)">Overview</a><br/><br/>
+                <a class="nav-item nav-link" (click)="UpdateSwitch(data.Sid)">Update Profile</a>
+
+
+            </div>
+        </div>
+    </nav>
+
+</fieldset>
+<form>
+    <fieldset class="main">
+
+
+
+
+        <div class="info-header">
+
+            <h1>STUDENT DETAILS</h1>
+
+
+            <ul class="nav nav-tabs links">
+                <li class="nav-item">
+                    <a class="nav-link " style=" color: #333;" (click)="show1=!show1">Update Form</a>
+                </li>
+
+            </ul>
+
+            <hr class="head">
+
+        </div>
+
+        <div id="student_display_body">
+
+            <div class="" id="display_per_info">
+
+                <table class="table borderless">
+
+
+
+                    <tr>
+                        <td>First Name*<input type="text" name="FirstName" class="form-control" value="{{data.FirstName}}" #FirstName></td>
+                        <td>Middle Name<input type="text" name="MiddleName" class="form-control" value="{{data.MiddleName}}" #MiddleName></td>
+                        <td>Last Name*<input type="text" name="LastName" class="form-control" value="{{data.LastName}}" #LastName></td>
+                    </tr>
+
+                    <tr>
+
+                        <td>Gender*<br>
+                            <select #Gen class="form-control">
+                              <option value="">(Select One)</option>
+                              <option *ngFor= "let Gender of Genders" [selected]="Gender == data.Gender"  value="{{Gender}}">{{Gender}}</option>
+                            </select>
+                        </td>
+
+                        <td>Date of Birth*<input type="date" name="DateOfBirth" class="form-control" value="{{data.Dob}}" #DOB></td>
+                        <td>Place of Birth*<input type="text" name="PlaceOfBirth" class="form-control" value="{{data.PlaceOfBirth}}" #POB></td>
+
+                    </tr>
+
+                    <tr>
+                        <td>Marital Status*<br>
+                            <select #MS class="form-control">
+                            <option value="">(Select One)</option>
+                          <option *ngFor= "let mStatus of MStatus" [selected]="mStatus == data.MaritalStatus"  value="{{mStatus}}">{{mStatus}}</option>
+                          </select>
+                        </td>
+
+                        <td>Religion*<input type="text" name="Religion" class="form-control" value="{{data.Religon}}" #Religion></td>
+                        <td>Nationality*<input type="text" name="Nationality" class="form-control" value="{{data.Nationality}}" #Nationality></td>
+
+
+                    </tr>
+
+                    <tr>
+
+                        <td>Class/Category<br>
+                            <select #C class="form-control">
+                            <option value="">(Select One)</option>
+                          <option *ngFor= "let class of Class" [selected]="class == data.Category"  value="{{class}}">{{class}}</option>
+                          </select>
+                        </td>
+
+                        <td>Mobile Number<input type="text" name="MobileNumber" class="form-control" value="{{data.MobileNumber}}" #MobNumb></td>
+
+                    </tr>
+
+                    <tr>
+                        <td>BloodGroup<br>
+                            <select #BG class="form-control">
+                        <option value="">(Select One)</option>
+                      <option *ngFor= "let BloodGroup of BloodGroups" [selected]="BloodGroup == data.BloodGroup"  value="{{BloodGroup}}">{{BloodGroup}}</option>
+                      </select>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Bank Name<input type="text" name="BankName" class="form-control" value="{{data.BankName}}" #BankName></td>
+                        <td>Account Number<input type="text" name="AccountNumber" class="form-control" value="{{data.AccountNumber}}" #Account></td>
+                        <td>Branch Address<input type="text" name="BranchAddress" class="form-control" value="{{data.BranchAddress}}" #BranchAddress></td>
+                    </tr>
+
+
+
+
+                </table>
+
+            </div>
+
+
+            <div id="display_family_info">
+
+                <table class="table borderless">
+
+
+
+                    <tr>
+                        <td>Landline Number *<input type="text" name="LandLineNumber" class="form-control" value="{{data.LandLineNumber}}" #LandLineNumber></td>
+                        <td>Parents Mobile Number*<input name="ParentsMobileNumber" type="text" class="form-control" value="{{data.ParentMobileNumber}}" #PMN></td>
+                        <td>Your Email*<input type="text" name="Email" class="form-control" value="{{data.Email}}" #Email></td>
+                    </tr>
+
+                    <tr>
+
+                        <td colspan="3">Residential Address*<textarea class="form-control" rows="3" #Address value="{{data.ResidentialAddress}}"></textarea></td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>Father's Name*<input type="text" name="FathersName" class="form-control" value="{{data.FatherName}}" #FatherName></td>
+
+
+                        <td>is your Father Living?*<br>
+                            <select #FDS class="form-control">
+                              <option value="">(Select One)</option>
+                              <option *ngFor= "let dstatus of DeathStatus" [selected]="dstatus == data.FatherStatus"  value="{{dstatus}}">{{dstatus}}</option>
+                            </select>
+                        </td>
+
+
+                        <td>Father's Occupation*<input type="text" name="FatherOccupation" class="form-control" value="{{data.FatherOccupation}}" #FatherOccupation></td>
+
+                    </tr>
+
+
+
+                    <tr>
+
+                        <td>Mother's Name*<input type="text" name="MotherName" class="form-control" value="{{data.MotherName}}" #MotherName></td>
+
+
+                        <td>is your Mother Living?*<br>
+                            <select #MDS class="form-control">
+                            <option value="">(Select One)</option>
+                            <option *ngFor= "let dstatus of DeathStatus" [selected]="dstatus == data.MotherStatus"  value="{{dstatus}}">{{dstatus}}</option>
+                          </select>
+                        </td>
+
+
+                        <td>Mother's Occupation*<input type="text" name="MotherOccupation" class="form-control" value="{{data.MotherOccupation}}" #MotherOccupation></td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>Parents's Email<input type="text" name="ParentEmail" class="form-control" value="{{data.ParentEmail}}" #ParentEmail></td>
+                        <td colspan="2">Mention names of sibling if they studies in this college<input type="text" name="Sibling" class="form-control" value="{{data.SiblingName}}" #SiblingName></td>
+
+                    </tr>
+
+
+                </table>
+
+                <fieldset style="border: 1px solid #ddd !important;">
+
+                    <legend><b>Guardian Detail's</b></legend>
+                    <table class=" guard table borderless">
+
+
+
+
+                        <tr>
+                            <td>Living with a guardian? If yes fill in details below. *<br>
+                                <input type="radio" name="options" id="option1">Yes&nbsp;&nbsp;
+                                <input type="radio" name="options" id="option2">No
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Guardian's Name*<input type="text" name="GuardianName" class="form-control" value="{{data.GuardianName}}" #GuardianName></td>
+                            <td>Guardian's Occupation<input type="text" name="GuardianOccupation" class="form-control" value="{{data.GuardianOccupation}}" #GuardianOccupation></td>
+                            <td>Guardian's Relation<input type="text" name="GuardianRelation" class="form-control" value="{{data.GuardianRelation}}" #GuardianRelation></td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="3">Guardian's Address*<textarea class="form-control" rows="3" #GuardianAddress value="data.GuardianAddress"></textarea></td>
+                        </tr>
+
+                    </table>
+
+                </fieldset>
+            </div>
+
+            <br>
+
+            <div id="display_qualification_info">
+
+                <fieldset style="border: 1px solid #ddd !important;">
+
+                    <legend>S.S.C or Equivalent</legend>
+                    <table class=" ssc table borderless">
+
+
+                        <tr>
+                            <td>Board/School Passed Out Of *<input type="text" name="SchoolBoardName" class="form-control" value="{{data.SscBoard}}" #SscBoardName></td>
+                            <td>Seat Number<input name="SchoolBoardNumber" type="text" class="form-control" value="{{data.SscSeatNo}}" #SscBoardNumber></td>
+                        </tr>
+
+                        <tr>
+                            <td>Month of Passing *
+                                <select #SSCMonth class="form-control">
+                                    <option value="">(Select One)</option>
+                                  <option *ngFor= "let month of months" [selected]="month == data.SscMonthOfPassing"  value="{{month}}" >{{month}}</option>
+                                  </select>
+                            </td>
+                            <td>Year of Passing*
+                                <select #SSCYear class="form-control">
+                                    <option value="">(Select One)</option>
+                                  <option *ngFor= "let year of years" [selected]="year == data.SscYearOfPassing"  value="{{year}}" >{{year}}</option>
+                                  </select>
+                            </td>
+                        </tr>
+
+
+                        <tr>
+
+                            <td>Total Marks Obtained *<input type="text" name="SscMarks" class="form-control" value={{data.SscTotalMarks}} #SscMarks></td>
+                            <td>Marks Out Of *<input type="text" name="SscMarksOutOf" class="form-control" value="{{data.SscMarkOutOf}}" #SscMarksOutOf></td>
+                            <td>Percentage *<input type="text" name="SscMarksPercentage" class="form-control" value="{{data.SscPercentage}}" #SscPercentage></td>
+                            <td>Class Obtained *<input type="text" name="SscClass" class="form-control" value="{{data.SscClassObtained}}" #SscClass></td>
+
+
+                        </tr>
+
+                    </table>
+
+                </fieldset>
+
+
+                <fieldset style="border: 1px solid #ddd !important;">
+
+                    <legend>H.S.S.C or Equivalent</legend>
+                    <table class=" hssc table borderless">
+
+
+                        <tr>
+                            <td>Board/School Passed Out Of *<input type="text" name="HSSCBoardName" class="form-control" value="{{data.HsscBoard}}" #HsscBoardName></td>
+                            <td>Stream*<input type="text" name="Stream" class="form-control" value="{{data.HsscStream}}" #HsscStream></td>
+                            <td>Seat Number<input type="text" name="HsscNumber" class="form-control" value="{{data.HsscSeatNo}}" #HsscNumber></td>
+                        </tr>
+
+                        <tr>
+                            <td>Month of Passing *
+                                <select #HsscMonth class="form-control">
+                                    <option value="">(Select One)</option>
+                                  <option *ngFor= "let month of months" [selected]="month == data.HsscMonthOfPassing"  value="{{month}}">{{month}}</option>
+                                  </select>
+                            </td>
+                            <td>Year of Passing*
+                                <select #HsscYear class="form-control">
+                                    <option value="">(Select One)</option>
+                                  <option *ngFor= "let year of years" [selected]="year == data.HsscYearOfPassing"  value="{{year}}">{{year}}</option>
+                                  </select>
+                            </td>
+                        </tr>
+
+
+                        <tr>
+
+                            <td>Total Marks Obtained *<input type="text" name="HsscMarksObtained" class="form-control" value="{{data.HsscTotalMarks}}" #HsscMarks></td>
+                            <td>Marks Out Of *<input type="text" name="HsscMarksOutOf" class="form-control" value="{{data.HsscMarkOutOf}}" #HsscMarksOutOf></td>
+                            <td>Percentage *<input type="text" name="HsscPercentage" class="form-control" value="{{data.HsscPercentage}}" #HsscPercentage></td>
+                            <td>Class Obtained *<input type="text" name="HsscClass" class="form-control" value="{{data.HsscClassObtained}}" #HsscClass></td>
+
+
+                        </tr>
+
+                    </table>
+
+                </fieldset>
+
+                <br>
+
+                <button type="submit" class="btn btn-danger" (click)="onUpdate(data.Sid, FirstName, MiddleName,LastName, Gen, DOB, POB, MS, Religion, Nationality, C, MobNumb, BG, BankName, Account, BranchAddress, LandLineNumber, PMN, Email, Address, FatherName, FDS, FatherOccupation,MotherName, MDS, MotherOccupation,ParentEmail, SiblingName,GuardianName,GuardianOccupation,GuardianRelation,GuardianAddress, SscBoardName, SscBoardNumber, SSCMonth,SSCYear,SscMarks, SscMarksOutOf, SscPercentage, SscClass, HsscBoardName, HsscStream, HsscNumber,HsscMonth, HsscYear, HsscMarks,HsscMarksOutOf, HsscPercentage, HsscClass)">Update</button>&nbsp;&nbsp;
+                <button type="submit" class="btn btn-light">Cancel</button>
+
+            </div>
+
+        </div>
+
+
+    </fieldset>

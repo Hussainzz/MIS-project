@@ -1,0 +1,244 @@
+<form  #studentForm="ngForm" (ngSubmit)="saveStudentDetails(studentForm)">
+<div class="col-md-12" id="#main">
+<div class="panel panel-primary">
+<div class="panel-body">
+<b><a style="color: red">SEARCH STAFF</a></b>
+<hr>
+<div class="table-toolbar">
+<div class="row"><div class="col-md-6"></div></div>
+</div>
+<div class="row">
+<div class="col-lg-12">
+<div class="form-group">
+<div class="col-lg-3"><label class="control-label" for="code">Code</label></div>
+<div class="col-lg-3">
+<div class="controls">
+<input name="code" id="code" type="text" class="form-control"/>
+</div>
+</div>
+
+<div class="col-lg-3"><label class="control-label" for="designation">Designation</label></div>
+<div class="col-lg-3">
+  <div class="controls">
+<select name="designation" id="designation" type="text" class="form-control">
+<option value="">(--Select--)</option>
+<option *ngFor= "let designation of designations" [value]="designation">
+{{designation}}
+</option>
+</select>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+<p></p>
+<div class="row">
+<div class="col-lg-12">
+<div class="form-group">
+<div class="col-lg-3"><label class="control-label" for="first_name">First Name</label></div>
+<div class="col-lg-3">
+<div class="controls">
+<input name="first_name" id="first_name" type="text" class="form-control"/>
+</div>
+</div>
+<div class="col-lg-3"><label class="control-label" for="last_name">Last Name</label></div>
+<div class="col-lg-3">
+<div class="controls">
+<input name="last_name" id="last_name" type="text" class="form-control"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p></p>
+<div class="row">
+<div class="col-lg-12">
+<div class="form-group">
+<div class="col-lg-3"><label class="control-label" for="gender">Gender</label></div>
+<div class="col-lg-3">
+<div class="controls">
+<select name="gender" id="gender" type="text" class="form-control">
+<option value="">(--Select--)</option>
+<option value="Male">Male</option>
+<option value="Female">Female</option>
+</select>
+</div>
+</div>
+<div class="col-lg-3"><label class="control-label" for="contract_type">Contract type</label></div>
+<div class="col-lg-3">
+<div class="controls">
+<select name="contract_type" id="contract_type" type="text" class="form-control">
+<option value="">(--Select--)</option>
+<option value="permanent">Permanent</option>
+<option value="contract">Contract</option>
+<option value="daily_wage">Daily wage</option>
+</select>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-lg-12">
+<div class="col-lg-12">
+<div class="form-group ">
+<span class="help-block"> 
+</span>
+</div>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-lg-12">
+<div class="col-lg-4">
+<input type="hidden" name="baseurl" id="baseurl" value="<?php echo base_url(); ?>" />
+<button type="button" class="btn btn-primary bgreenBtn" id="Search_staff">Search</button>
+<button type="reset" class="btn btn-default" id="clear_search">Clear</button>
+<button type="button" class="btn btn-default" id="active_staff_members">Active Staff Members</button>
+</div>
+</div>
+</div>
+
+<div class="extra-space"></div>
+<div id="load-spinner" style="text-align: center">
+  <img src="" />
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <div class="col-md-12 table-responsive">
+      <table id="reactive-table-1" class="table table-striped table-hover table-bordered reactive-table">
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="staffMemModal">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+<h4 class="modal-title">Staff Member</h4>
+</div>
+<div class="modal-body">
+<div class="row">
+<div class="col-lg-12">
+
+<div class="col-lg-6 ">
+<label class="control-label"><b>Salutation: </b></label>
+<label class="control-label" id="modal-salutation">
+</label>
+</div>
+<div class="col-lg-6 ">
+<label class="control-label"><b>First name: </b> </label>
+<label class="control-label" id="modal-first-name">
+</label>
+</div>
+<div class="col-lg-6 ">
+<label class="control-label"><b>Middle name: </b> </label>
+<label class="control-label" id="modal-middle-name">
+</label>
+</div>
+<div class="col-lg-6">
+<label class="control-label"><b>Last name: </b> </label>
+<label class="control-label" id="modal-last-name">
+</label>
+</div>
+<div class="col-lg-6">
+<label class="control-label"><b>Code: </b> </label>
+<label class="control-label" id="modal-code">
+</label>
+</div>
+<div class="col-lg-6">
+<label class="control-label"><b>Gender: </b> </label>
+<label class="control-label" id="modal-gender">
+</label>
+</div>
+
+
+<div class="col-lg-6">
+<label class="control-label"><b>Date of Birth: </b> </label>
+<label class="control-label" id="modal-dob">
+</label>
+</div>
+<div class="col-lg-6">
+<label class="control-label"><b>Blood group: </b> </label>
+<label class="control-label" id="modal-blood">
+ </label>
+</div>
+<div class="col-lg-12">
+<label class="control-label"><b>Address: </b></label>
+<label class="control-label" id="modal-address">
+</label>
+</div>
+<div class="col-lg-6">
+<label class="control-label"><b>Contact number:</b></label>
+<label class="control-label" id="modal-contact">
+</label>
+</div>
+<div class="col-lg-6">
+<label class="control-label"><b>Email: </b></label>
+<label class="control-label" id="modal-email">
+</label>
+</div>
+<div class="col-lg-12">
+<label class="control-label"><b>Emergency contact name: </b></label>
+<label class="control-label" id="modal-emergency-contact-name">
+</label>
+</div>
+<div class="col-lg-12">
+<label class="control-label"><b>Emergency contact number: </b></label>
+<label class="control-label" id="modal-emergency-contact-number">
+</label>
+</div>
+<div class="col-lg-12">
+<label class="control-label"><b>Emergency contact relationship: </b></label>
+<label class="control-label" id="modal-emergency-contact-relationship">
+</label>
+</div>
+<div class="col-lg-12">
+<label class="control-label"><b>Education qualification: </b></label>
+<label class="control-label" id="modal-qualification">
+</label>
+</div>
+<div class="col-lg-6">
+<label class="control-label"><b>Department: </b></label>
+<label class="control-label" id="modal-department">
+</label>
+</div>
+<div class="col-lg-6">
+<label class="control-label"><b>Designation: </b></label>
+<label class="control-label" id="modal-designation">
+</label>
+</div>
+<div class="col-lg-6">
+<label class="control-label"><b>Date of joining: </b></label>
+<label class="control-label" id="modal-doj">
+</label>
+</div>
+<div class="col-lg-6">
+<label class="control-label"><b>Contract type: </b></label>
+<label class="control-label" id="modal-contract-type">
+</label>
+</div>
+<div class="col-lg-6">
+<label class="control-label"><b>Salary: </b></label>
+<label class="control-label" id="modal-salary">
+</label>
+</div>
+<div class="col-lg-12">
+<label class="control-label"><b>Notes: </b></label>
+<label class="control-label0" id="modal-notes">
+</label>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</form>

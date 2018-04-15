@@ -1,0 +1,92 @@
+form {}
+
+button {
+    font-family: "Open Sans", sans-serif;
+    font-size: 10.5pt;
+    margin-left: 20%;
+}
+
+.active {
+    letter-spacing: 1px;
+    color: #E22E1E;
+    font-family: "Open Sans", sans-serif;
+    font-size: 12pt;
+    font-weight: bold;
+}
+
+.list-unstyled {
+    font-family: "Open Sans", sans-serif;
+    color: #646464;
+    font-size: 15px;
+    letter-spacing: 1px;
+}
+
+img {
+    width: 50%;
+    height: 50%;
+    margin-left: 20%;
+}
+
+.head {
+    margin-top: -0.099%;
+}
+
+h1 {
+    letter-spacing: 1px;
+    color: #E22E1E;
+    font-family: "Open Sans", sans-serif;
+    font-size: 12pt;
+    font-weight: bold;
+}
+
+.links {
+    font-family: "Open Sans", sans-serif;
+    margin-left: 78%;
+    margin-top: -3%;
+    font-size: 11pt;
+    font-weight: bold;
+}
+
+td,
+th {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 11pt;
+}
+
+.borderless td,
+.borderless th {
+    border: none;
+}
+
+
+/* fieldset
+{
+  width: 75%;
+  border: 1px solid #ddd !important;
+  margin: 0;
+  padding: 10px;
+  position: relative;
+  border-radius:4px;
+
+  padding-left:10px!important;
+}  */
+
+.sidebar {
+    border: 1px solid #ddd !important;
+    width: 30%;
+    margin-left: -2%;
+    border-radius: 4px;
+    margin-top: 8%;
+}
+
+.main {
+    width: 110%;
+    border: 1px solid #ddd !important;
+    margin: 0;
+    padding: 10px;
+    position: relative;
+    border-radius: 4px;
+    margin-left: 30%;
+    margin-top: -37%;
+    padding-left: 10px!important;
+}

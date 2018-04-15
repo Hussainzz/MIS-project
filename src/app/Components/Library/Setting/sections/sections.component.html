@@ -1,0 +1,82 @@
+<br>
+<form (ngSubmit)="onSubmit(library)" #library="ngForm">
+    <alert></alert>
+    <fieldset class="formpanel">
+
+
+
+
+
+        <h1>LIBRARY SETTINGS</h1>
+
+
+        <div class="topbutton">
+            <button type="button" style=" width: 110px;
+          height: 30px;
+          padding: 6px 0px;
+          border-radius: 15px;
+          text-align: center;
+          line-height: 1;
+          " class="btn btn-danger btn-circle"><i class="fa fa-plus-circle" (click)="show=!show">&nbsp;Add Section</i>
+          </button>
+
+
+
+        </div>
+
+        <hr>
+
+        <div class="addsections" *ngIf="show">
+            <fieldset class="section">
+                <div class="form-group" [class.has-error]="sectionControl.invalid && sectionControl.touched">
+                    <label class="control-label">Section Name*</label>
+                    <input required name="SectionName" type="text" class="form-control" #SectionName [(ngModel)]="Sectionname" #sectionControl="ngModel">
+                    <span class="help-block" style="color:red" *ngIf="sectionControl.errors?.required && sectionControl.touched">
+                  Please enter Book section
+                    </span></div>
+                <p></p>
+
+                <button type="submit" class="btn btn-danger" (click)="SaveSection(SectionName)" [disabled]=!library.valid>Save</button>&nbsp;&nbsp;
+                <button type="submit" class="btn btn-light">Cancel</button>
+
+
+            </fieldset>
+
+        </div>
+
+        <br>
+
+        <table class="table  table-striped table-hover table-bordered reactive-table">
+            <thead>
+                <tr>
+                    <th fieldid="0">Name</th>
+                    <th fieldid="1">Actions</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let BookData of BookDatas">
+                    <td> <input type="text" value="{{BookData.SectionName}}" [disabled]=!field #BookSectionName> </td>
+                    <td>
+                        <span class=" glyphicon glyphicon-edit" (click)="Enter(BookData,BookSectionName)"></span> &nbsp;&nbsp;
+                        <span class=" glyphicon glyphicon-trash " (click)="Delete(BookData)"></span></td>
+                </tr>
+            </tbody>
+        </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </fieldset>
+</form>

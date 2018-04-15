@@ -1,0 +1,134 @@
+<form (ngSubmit)="onSubmit(rollnoDetails)" #rollnoDetails="ngForm">
+<div class="col-md-12">
+<div class="panel panel-primary">
+<div class="panel-body">
+<b><a style="color: red">ALLOCATE ROLL NUMBERS TO STUDENTS</a></b>
+<hr>
+<div class="form-group" [class.has-error]="admissionyearControl.invalid && admissionyearControl.touched" >
+<div class="col-md-4">
+<label class="control-label">Choose Admission year *</label>
+</div>
+<div class="col-md-8">
+<div class="controls">
+<select required id="admission" name="admission" class="form-control" [(ngModel)]="admission"  #admissionyearControl="ngModel">
+<option value="">(Select One)</option>
+<option *ngFor= "let admission of admissions" [value]="admission">
+{{admission}}
+</option> 
+</select>
+<span class="help-block" *ngIf="admissionyearControl.invalid && admissionyearControl.touched">
+Admission Year is Required.
+</span>
+</div>
+</div>
+</div>
+<br>
+<br><br>
+
+<div class="table-toolbar"><div class="row"><div class="col-md-6"></div></div></div>
+<div class="form-group" [class.has-error]="courseControl.invalid && courseControl.touched">
+<div class="col-md-4">
+<label class="control-label">Choose Stream *</label>
+</div>
+<div class="col-md-8">
+<div class="controls">
+<select required id="course" name="course" [(ngModel)]="course" class="form-control" #courseControl="ngModel">
+<option value="">(Select One)</option>
+<option *ngFor= "let course of courses" [value]="course">
+{{course}}
+</option>
+</select>
+<span class="help-block" *ngIf="courseControl.invalid && courseControl.touched">
+Course is Required.
+</span>
+</div>
+</div>
+</div>
+<br>
+<br>
+
+<div class="table-toolbar"><div class="row"><div class="col-md-6"></div></div></div>
+<div class="row">
+<div class="col-md-12">
+<div class="form-group"  [class.has-error]="divisionControl.invalid && divisionControl.touched">
+<div class="col-md-4">
+<label class="control-label">Choose division *</label>
+</div>
+<div class="col-lg-8">
+<div class="controls">
+<select required id="division" name="division"  class="form-control" [(ngModel)]="division" #divisionControl="ngModel">
+<option value="">(Select One)</option>
+<option *ngFor= "let division of divisions" [value]="division">
+{{division}}
+</option> 
+</select>
+<span class="help-block" *ngIf="divisionControl.invalid && divisionControl.touched">
+Division is Required.
+</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<br>
+
+<div class="table-toolbar"><div class="row"><div class="col-md-6"></div></div></div>
+<div class="row">
+<div class="col-lg-12">
+<button type="button" class="btn btn-primary bgreenBtn" style="float:right" id="searchRollNumber" [disabled]="!rollnoDetails.valid" (click)="show=!show" >Search</button>
+</div>
+</div>
+<br/>
+
+<div class="col-md-12">
+<div class="col-md-8 right">
+<div class="input-group">
+<input name="seq_first" id="seq_first" class="form-control" type="text">
+<span class="input-group-addon cursor_pointer" id="create-prefix-codes">
+Add Prefix Code
+</span>
+</div>
+<br>
+
+<div class="input-group">
+<input name="seq_num" id="seq_num" class="form-control" type="text">
+<span class="input-group-addon cursor_pointer" id="create-sequence">
+Add First Numeric No. & Create Sequence
+</span>
+</div>
+<span class="error-create-sequence" style="color:#a94442">
+</span>
+</div>
+</div>
+<br>
+
+<div *ngIf="show">
+<div class="table-toolbar"><div class="row"><div class="col-md-6"></div></div></div>
+<div class="row">
+<div class="col-lg-12 table-responsive">
+<div class="clearfix">
+<div class="reactive-table-options col-sm-8 pull-right">
+</div>
+</div>
+<table id="allRollTab" class="table table-striped table-hover table-bordered reactive-table ">
+</table>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12">
+<div class="roll-number-exist-block" style="color : red;">
+</div>
+</div>
+</div>
+</div>
+<br>
+
+<div class="row"  id="allocate-block">
+<div class="col-lg-12">
+<button type="submit" class="btn btn-primary bgreenBtn" style="float:right" id="AllocateRoll">Allocate</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</form>

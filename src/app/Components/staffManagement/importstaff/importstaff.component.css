@@ -1,0 +1,37 @@
+form {
+    width: 140%;
+    margin-top: 7%;
+    margin-left: -2%;
+}
+
+h1 {
+    letter-spacing: 1px;
+    color: #E22E1E;
+    font-family: "Open Sans", sans-serif;
+    font-size: 12pt;
+    font-weight: bold;
+}
+
+.topbutton {
+    margin-top: -3%;
+    margin-left: 85%;
+}
+
+p,
+th {
+    font-family: "Open Sans", sans-serif;
+    font-size: 11.5pt;
+}
+
+.para {
+    font-weight: bold;
+}
+
+.formpanel {
+    border: 1px solid #ddd !important;
+    margin: 0;
+    padding: 10px;
+    position: relative;
+    border-radius: 4px;
+    padding-left: 10px!important;
+}

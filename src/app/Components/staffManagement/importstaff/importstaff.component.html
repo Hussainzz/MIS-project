@@ -1,0 +1,98 @@
+<br>
+<form>
+
+    <fieldset class="formpanel">
+        <p></p>
+
+        <h1>IMPORT STAFF MEMBER DATA</h1>
+
+        <div class="topbutton">
+            <button type="button" style=" width: 70px;
+    height: 30px;
+    padding: 6px 0px;
+    border-radius: 15px;
+    text-align: center;
+    line-height: 1;
+    " class="btn btn-danger btn-circle"><i class="fa fa-plus-circle">&nbsp;Import</i>
+    </button>
+
+
+            <button type="button" style=" width: 70px;
+    height: 30px;
+    padding: 6px 0px;
+    border-radius: 15px;
+    text-align: center;
+    line-height: 1;
+    " class="btn btn-light btn-circle"><i class="fa fa-times-circle">&nbsp;Cancel</i>
+    </button>
+
+        </div>
+        <hr>
+
+        <label>CSV File</label><br>
+
+        <button type="submit" class="btn btn-light">Browse</button> &nbsp;<br><br>
+        <button type="submit" class="btn btn-danger">Import</button> &nbsp;
+        <button type="submit" class="btn btn-light">Cancel</button>
+        <br><br>
+        <p>To import data into this page please make sure the the file is a CSV file and contains the proper headers and in the order mentioned below.</p>
+
+        <p class="para">(Code, Salutation, First name, Middle name, Last name, gender, Date of birth, Blood group, Address, Contact number, Email, Emergency contact name, Emergency contact number, Emergency contact relationship, Education qualification, Designation,
+            Date of joining, Contract type, Salary, Notes, Department)</p>
+
+        <input type="text" placeholder="Filter" style="width:40%;margin-left:60%;" class="form-control">
+        <br>
+        <input type="text" placeholder="Filter" style="width:20%;margin-left:80%;" class="form-control">
+
+        <p></p>
+        <div class="table-responsive">
+            <table id="staffImport" class="table table-bordered" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th class="_id" fieldid="0">
+                            <div class="form-group">
+                                <input name="all" id="select_all" class="select_all" type="checkbox">
+                                <span class="help-block"></span>
+                            </div>
+                        </th>
+                        <th>code</th>
+                        <th>Salutation</th>
+                        <th>First name</th>
+                        <th>Middle name</th>
+                        <th>Last name</th>
+                        <th>Gender</th>
+                        <th>DOB</th>
+                        <th>Blood group</th>
+                        <th>Address</th>
+                        <th>Contact number</th>
+                        <th>Email</th>
+                        <th>Emergency contact name</th>
+                        <th>Emergency contact number</th>
+                        <th>Emergency contact relationship</th>
+                        <th>Education qualification</th>
+                        <th>Designation</th>
+                        <th>Date of joining</th>
+                        <th>Contract type</th>
+                        <th>Salary</th>
+                        <th>Department</th>
+                    </tr>
+                </thead>
+
+            </table>
+
+        </div>
+
+        <p> Showing 0 to 0 of 0 entries </p>
+
+        <button type="submit" style="margin-left: 93%;" class="btn btn-danger">Finalise</button>
+
+
+    </fieldset>
+
+</form><input type="file" class="upload" (change)="changeListener($event.target.files)">
+<tr *ngFor="let x of headers">
+    <th><span>  {{x}}  </span></th>
+</tr><br/>
+<tr *ngFor="let y of Datas">
+    <td><span>{{y}}</span></td>
+</tr>

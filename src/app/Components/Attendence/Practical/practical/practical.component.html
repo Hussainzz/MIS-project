@@ -1,0 +1,177 @@
+<br>
+<form (ngSubmit)="onSubmit(PracticalAllocation)" #PracticalAllocation="ngForm">
+    <alert></alert>
+    <fieldset class="formpanel">
+
+
+
+        <h1>PRACTICAL ALLOCATION</h1>
+
+
+
+
+        <ul class="nav nav-tabs links">
+            <li class="nav-item">
+                <a class="nav-link active " style=" color: #333;" (click)="JumpToAllocate()">Allocate</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " style=" color: #333;" (click)="JumpToView()">View</a>
+            </li>
+
+
+        </ul>
+
+        <hr class="head">
+
+
+
+        <table class="table borderless">
+
+            <tr>
+
+                <td>
+
+                    <div class="form-group" [class.has-error]="academicyearControl.invalid && academicyearControl.touched">
+                        <label class="control-label">Academic Year*</label>
+                        <select required id="AcademicYear" class="form-control" name="AcademicYear" [(ngModel)]="AcademicYear" #academicyearControl="ngModel">
+          <option value="" selected="selected">(--Select Year--)</option>
+          <option *ngFor="let range of ranges" value="{{range}}">{{range}}</option>
+
+        </select>
+                        <span class="help-block" style="color:red" *ngIf="academicyearControl.errors?.required && academicyearControl.touched">
+            Academic Year Required
+          </span></div>
+                </td>
+
+                <td>
+                    <div class="form-group" [class.has-error]="semesterControl.invalid && semesterControl.touched">
+                        <label class="control-label">Semester*</label>
+                        <select required id="Semester" class="form-control" name="Semester" [(ngModel)]="Semester" #semesterControl="ngModel">
+      <option value="" selected="selected">(--Select Semester/Term--)</option>
+      <option *ngFor="let semester of semesters" value="{{semester}}">{{semester}}</option>
+    </select>
+                        <span class="help-block" style="color:red" *ngIf="semesterControl.errors?.required && semesterControl.touched">
+        Semester Required
+      </span></div>
+
+                </td>
+
+
+            </tr>
+
+            <tr>
+                <td>
+                    <div class="form-group" [class.has-error]="divisionControl.invalid && divisionControl.touched">
+                        <label class="control-label">Division*</label>
+                        <select required id="Division" class="form-control" name="Division" [(ngModel)]="Division" #divisionControl="ngModel">
+        <option value=""selected="selected">(--Select Division--)</option>
+        <option *ngFor="let Division of Divisions" value="{{Division.Did}}">{{Division.DivisionName}}</option>
+      </select>
+                        <span class="help-block" style="color:red" *ngIf="divisionControl.errors?.required && divisionControl.touched">
+          Division Required
+        </span></div>
+                </td>
+
+                <td>
+                    <div class="form-group" [class.has-error]="practical_subjectControl.invalid && practical_subjectControl.touched">
+                        <label class="control-label">Practical Subjects*</label>
+                        <select required id="Subject" class="form-control" name="Subject" [(ngModel)]="Subject" #practical_subjectControl="ngModel">
+        <option value="" selected="selected">(--Select--)</option>
+        <option *ngFor="let Subject of Subjects" value="{{Subject.Subid}}">{{Subject.SubjectName}}</option>
+
+      </select>
+                        <span class="help-block" style="color:red" *ngIf="practical_subjectControl.errors?.required && practical_subjectControl.touched">
+       subjects Required
+        </span></div>
+                </td>
+
+            </tr>
+
+            <tr>
+                <td>
+                    <label class="control-label">Batch*</label>
+                    <input type="text" class="form-control" name="Batch" [(ngModel)]="Batch">
+                </td>
+
+                <td>
+                    <div class="form-group" [class.has-error]="rollnumberControl.invalid && rollnumberControl.touched">
+                        <label class="control-label">Select Roll Number*</label>
+                        <textarea required type="text" name="Students" [(ngModel)]="Students" class="form-control note-editable" rows="7" #rollnumberControl="ngModel"></textarea>
+                        <span class="help-block" style="color:red" *ngIf="rollnumberControl.errors?.required && rollnumberControl.touched">
+                       Please Enter Roll Number
+                         </span></div>
+                </td>
+
+            </tr>
+
+            <tr>
+                <td>
+                    <div class="form-group" [class.has-error]="facultyControl.invalid && facultyControl.touched">
+                        <label class="control-label">Faculty*</label>
+                        <select required id="Faculty" class="form-control" name="Faculty" [(ngModel)]="Faculty" #facultyControl="ngModel">
+                            <option value="" selected="selected">(--Select--)</option>
+                      <option *ngFor="let Staff of Staffs" value="{{Staff.StaffId}}">{{Staff.FirstName}} {{Staff.LastName}}</option>
+        </select>
+                        <span class="help-block" style="color:red" *ngIf="facultyControl.errors?.required && facultyControl.touched">
+          Please Select Faculty Member
+              </span></div>
+                </td>
+
+                <td>
+                    <div class="form-group" [class.has-error]="SessionControl.invalid && SessionControl.touched">
+                        <label class="control-label">All Session Nos.*</label>
+                        <input required pattern="^[1-8](,[1-8])*$" id="SessionNo" type="text" name="SessionNo" placeholder="e.g. 1,2,3,4" class="form-control" [(ngModel)]="SessionNo" #SessionControl="ngModel">
+                        <span class="help-block" style="color:red" *ngIf="SessionControl.errors?.required && SessionControl.touched">
+                      Enter Session
+                            </span>
+                        <span class="help-block" style="color:red" *ngIf="SessionControl.errors?.pattern && SessionControl.touched">
+                            Session should only be a number
+                                      </span></div>
+                </td>
+            </tr>
+
+            <div class="buttontop">
+                <button type="button" style="width:70px;
+          height:30px;
+          padding:6px 0px;
+          border-radius:15px;
+          text-align:center;
+          line-height:1;" class="btn btn-danger btn-circle" (click)="show=!show">See List</button>
+            </div>
+            <p></p>
+            <div *ngIf="show">
+                <table class="table  table-striped table-hover table-bordered reactive-table">
+                    <thead>
+                        <tr>
+                            <th fieldid="0">Name</th>
+                            <th fieldid="1">RollNo</th>
+                            <th fieldid="2">Division</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let Student of students">
+                            <td>{{Student.FirstName}} {{Student.LastName}}</td>
+                            <td>{{Student.RollNo}}</td>
+                            <td>{{Student.Division.DivisionName}}</td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p></p>
+            <button type="submit" class="btn btn-danger" [disabled]=!PracticalAllocation.valid>Allocate</button>&nbsp;&nbsp;
+            <button type="reset" class="btn btn-light">Cancel</button>
+
+
+        </table>
+    </fieldset>
+</form>
+<fieldset>
+
+
+    <br>
+
+
+
+
+</fieldset>

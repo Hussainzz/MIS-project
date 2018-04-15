@@ -1,0 +1,139 @@
+<form (ngSubmit)="onSubmit(bulkSubjectDetails)" #bulkSubjectDetails="ngForm">
+<div class ="col-md-12">
+<div class= "form-group" [class.has-error]="courseControl.invalid && courseControl.touched">
+<label class="control-label">
+Course
+</label>
+<select required id="course" name="course" [(ngModel)]="course" #courseControl="ngModel" class="form-control">
+<option value="" selected="selected">(-Select Course-)</option>
+<option *ngFor= "let course of courses" [value]="course">
+{{course}}
+</option> 
+</select>
+<span class="help-block" *ngIf="courseControl.invalid && courseControl.touched">
+Course is Required.
+</span>
+</div>
+</div>
+
+<div class ="col-md-12">
+<div class= "form-group" [class.has-error]="semesterControl.invalid && semesterControl.touched">
+<label class="control-label">
+Semester
+</label>
+<select required id="semester" name="semester" [(ngModel)]="semester" #semesterControl="ngModel" class="form-control">
+<option value="" selected="selected">(-Select Semester-)</option>
+<option *ngFor= "let semester of semesters" [value]="semester">
+{{semester}}
+</option> 
+</select>
+<span class="help-block" *ngIf="semesterControl.invalid && semesterControl.touched">
+Semester is Required.
+</span>
+</div>
+</div>
+
+<div class="col-md-12">
+<div class= "form-group" [class.has-error]="academicyearControl.invalid && academicyearControl.touched">
+<label class="control-label">Academic Year</label>
+<input required id="academicyear"  name="academicyear" [(ngModel)]="academicyear" #academicyearControl="ngModel" type="text" class="form-control" placeholder="eg:2016">
+<span class="help-block" *ngIf="academicyearControl.invalid && academicyearControl.touched">
+Academic Year is Required.
+</span>
+</div>
+</div>
+
+<br>
+
+<div class="col-md-12">
+<div class= "form-group" [class.has-error]="rollNumberControl.invalid && rollNumberControl.touched">
+<label class="control-label">Roll No</label>
+<input required id="rollNumber"  name="rollNumber" [(ngModel)]="rollNumber" #rollNumberControl="ngModel" type="text" class="form-control">
+<span class="help-block" *ngIf="rollNumberControl.invalid && rollNumberControl.touched">
+Roll Number is Required.
+</span>
+</div>
+</div>
+
+<div class="col-lg-3">
+<button type="submit" class="btn btn-primary" [disabled]="!bulkSubjectDetails.valid" (click)="show=!show">Search</button>
+</div>
+</form>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<div *ngIf="show">
+<div class="col-lg-12" id="studentDetailBlock"><!--;-->
+<div class= "well well-lg">
+<p class="row">
+<span class="col-md-4">Registration no :</span> 
+<span class="col-md-4" id="studentregistrationNumber">
+</span>
+<span class="col-md-4">Course :</span> 
+<span class="col-md-4" id="studentCourseName">
+</span>
+</p></div>
+</div>
+<br>
+<hr>
+<div class="col-lg-12 compulsory-block" ><!--;-->
+<button class="btn btn-default right" type="button" id="deleteSubjectCompulsory" style="float: right">Delete Compulsory Subjects</button>
+</div>
+<div class="col-lg-12 compulsory-block">
+<br/>
+<label class="checkbox-inline">
+<input type="checkbox" name="subject 1" [(ngModel)]="sebc">Subject 1
+</label>
+<label class="checkbox-inline">
+<input type="checkbox" name="subject 2" [(ngModel)]="ssct">Subject 2
+</label>
+<label class="checkbox-inline">
+<input type="checkbox" name="subject 3" [(ngModel)]="smin">Subject 3
+</label>
+<label class="checkbox-inline">
+<input type="checkbox" name="subject 4" [(ngModel)]="sobc">Subject 4
+</label>
+<label class="checkbox-inline">
+<input type="checkbox" name="Subject 5" [(ngModel)]="others">Subject 5
+</label>
+<label class="checkbox-inline">
+<input type="checkbox" name="subject 6" [(ngModel)]="sebc">Subject 6
+</label>
+</div>
+
+<div class="col-lg-12 compulsory-block" ><!--;-->
+<br>
+<button class="btn btn-primary" type="button" id="chooseOptionalCompulsory" >Choose Complusory Subject</button>
+</div> 
+<br>
+<br><br><br><br><br><br><br><br><br><br>
+<hr>
+<div class="col-lg-12 compulsory-block" ><!--;-->
+<button class="btn btn-default right" type="button" id="deleteSubjectCompulsory" style="float: right">Delete Optional Subjects</button>
+</div>
+<div class="col-lg-12 compulsory-block">
+<br/>
+<label class="checkbox-inline">
+<input type="checkbox" name="subject 1" [(ngModel)]="sebc">Subject 1
+</label>
+<label class="checkbox-inline">
+<input type="checkbox" name="subject 2" [(ngModel)]="ssct">Subject 2
+</label>
+<label class="checkbox-inline">
+<input type="checkbox" name="subject 3" [(ngModel)]="smin">Subject 3
+</label>
+<label class="checkbox-inline">
+<input type="checkbox" name="subject 4" [(ngModel)]="sobc">Subject 4
+</label>
+</div>
+
+<div class="col-lg-12 compulsory-block" ><!--;-->
+<br>
+<button class="btn btn-primary" type="button" id="chooseSubjectCompulsory" >Choose Optional Subject</button>
+</div> 
+<div class="col-lg-12 optional-block" id="course-semester-choices" ><!--;-->
+<br>
+</div>
+</div>
+
+
+
+   

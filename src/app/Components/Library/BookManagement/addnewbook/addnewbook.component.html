@@ -1,0 +1,104 @@
+<form (ngSubmit)="AddBook(bookdetails)" #bookdetails="ngForm">
+    <alert></alert>
+    <fieldset class="formpanel">
+
+
+
+        <div class="info-header">
+
+            <h1>BOOK MANAGEMENT</h1>
+
+
+
+
+            <hr class="head">
+
+        </div>
+
+
+
+        <table class="table borderless">
+
+            <tr>
+                <td>ISBN:</td>
+                <td><input name="ISBN" type="text" style="margin-left:-40%; width:140%" class="form-control" [(ngModel)]="ISBN"></td>
+            </tr>
+
+            <tr>
+                <td>Book Name:</td>
+                <td><textarea name="BookName" class="form-control" style="margin-left:-40%; width:140%" rows="2" [(ngModel)]="BookName"></textarea></td>
+            </tr>
+
+            <tr>
+                <td>Author:</td>
+                <td><input name="Author" type="text" style="margin-left:-40%; width:140%" class="form-control" [(ngModel)]="Author"></td>
+            </tr>
+
+            <tr>
+                <td>Publisher:</td>
+                <td><textarea name="Publisher" class="form-control" style="margin-left:-40%; width:140%" rows="2" [(ngModel)]="Publisher"></textarea></td>
+            </tr>
+
+            <tr>
+                <td>Section:</td>
+                <td>
+                    <select name="Section" style="margin-left:-40%; width:140%" class="form-control" [(ngModel)]="Section">
+            <option value="">(--Select Section--)</option>
+            <option *ngFor="let Section of Sections" value="{{Section.Bsid}}">{{Section.SectionName}}</option>
+
+          </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Number of Pages:</td>
+                <td><input name="NumberOfPages" type="text" style="margin-left:-40%; width:140%" class="form-control" [(ngModel)]="NumberOfPages"></td>
+            </tr>
+
+            <tr>
+                <td>Add keyword:</td>
+                <td><input name="Keyword" type="text" style="margin-left:-40%; width:140%" class="form-control" [(ngModel)]="Keyword"></td>
+            </tr>
+
+            <tr>
+                <td>Publisher Location:</td>
+                <td><input name="PubLocation" type="text" style="margin-left:-40%; width:140%" class="form-control" [(ngModel)]="PubLocation"></td>
+            </tr>
+
+            <tr>
+                <td>Publication Year:</td>
+                <td><select name="PubYear" style="margin-left:-40%; width:140%" class="form-control" [(ngModel)]="PubYear">
+                    <option value="">(--Select Section--)</option>
+                    <option *ngFor="let year of years" value="{{year}}">{{year}}</option>
+
+                  </select></td>
+            </tr>
+
+            <tr>
+                <td>Classification:</td>
+                <td><input name="Classification" type="text" style="margin-left:-40%; width:140%" class="form-control" [(ngModel)]="Classification"></td>
+            </tr>
+
+            <tr>
+                <td>Edition:</td>
+                <td><input name="Edition" type="text" style="margin-left:-40%; width:140%" class="form-control" [(ngModel)]="Edition"></td>
+            </tr>
+
+
+
+            <button type="submit" class="btn btn-danger">Add</button>&nbsp;&nbsp;
+            <button type="reset" class="btn btn-light">Cancel</button>
+
+
+        </table>
+
+
+
+
+
+
+
+
+
+    </fieldset>
+</form>

@@ -1,0 +1,58 @@
+<br>
+<form>
+    <alert></alert>
+    <fieldset class="formpanel">
+        <p></p>
+
+        <h1>NEW NOTICE TYPE</h1>
+
+        <div class="buttontop">
+            <button type="button" style="width:70px;
+      height:30px;
+      padding:6px 0px;
+      border-radius:15px;
+      text-align:center;
+      line-height:1;" class="btn btn-danger btn-circle" (click)="show=!show">Add</button>
+        </div>
+
+
+
+        <hr>
+
+
+        <div *ngIf="show">
+
+            <p>Type</p>
+            <input type="text" style="width:75%;" class="form-control" #typeName>
+            <p></p>
+            <button type="button" (click)="createType(typeName)" class="btn btn-danger">Add notice type</button>
+            <button type="button" class="btn btn-light" ng-click="noticeTypeName = null">Clear</button>
+        </div>
+
+        <p></p>
+
+        <table class='table table-bordered reactive-table'>
+
+            <tr>
+                <th>Type</th>
+                <th>Edit</th>
+                <th>delete</th>
+
+            </tr>
+
+            <tr *ngFor="let data of datas">
+                <td><input type="text" value="{{data.NoticeTypeName}}" [disabled]=!field #typeName></td>
+                <td><span (click)="Enter(data,typeName) " class="glyphicon glyphicon-edit"></span></td>
+                <td><span (click)="deleteType(data)" class="glyphicon glyphicon-trash"></span></td>
+            </tr>
+
+
+        </table>
+
+
+
+
+
+    </fieldset>
+    <br>
+</form>

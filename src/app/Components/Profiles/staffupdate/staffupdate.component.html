@@ -1,0 +1,173 @@
+<br>
+
+
+<fieldset class="sidebar">
+
+    <br/>
+    <img src="assets/images/user.png" class="img-fluid" alt="Responsive image" />
+
+    <br>
+    <p></p>
+
+    <button type="button" style=" width: 110px;
+        height: 30px;
+        padding: 6px 0px;
+        border-radius: 15px;
+        text-align: center;
+        line-height: 1;
+        " class="btn btn-light btn-circle">Change Avatar
+        </button>
+
+    <br/><br/>
+    <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+
+
+        <div class="" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <span class="nav-item nav-link" (click)="OverviewSwitch(data.StaffId)">Overview</span>
+                <br/><br/>
+                <span class="nav-item nav-link" (click)="UpdateSwitch(data.StaffId)">Update Profile</span>
+
+
+            </div>
+        </div>
+    </nav>
+
+</fieldset>
+<form>
+
+    <fieldset class="main">
+
+
+        <div class="info-header">
+
+            <h1>STAFF DETAILS</h1>
+
+
+            <ul class="nav nav-tabs links">
+                <li class="nav-item">
+                    <a class="nav-link " style=" color: #333;" href="#">Staff Member Info</a>
+                </li>
+
+
+            </ul>
+
+            <hr class="head">
+
+        </div>
+
+        <table class="table borderless">
+
+
+
+            <tr>
+                <td>Code<input type="text" name="Code" class="form-control" value="{{data.StaffCode}}" #Code readonly></td>
+                <!--                 <td>Salutation<input type="text" name="Salutation" class="form-control" value="{{data.Salutation}}" #Salutation></td>
+ -->
+                <td>Salutation
+                    <select required id="Salutation" name="Salutation" class="form-control" #Sal>
+                    <option value="" selected="selected">(Select One)</option>
+                    <option *ngFor="let salutation of salutations" [selected]="salutation == data.Salutation" value="{{salutation}}">{{salutation}}</option>
+                  </select>
+                </td>
+
+                <td>First Name<input type="text" name="FirstName" class="form-control" value="{{data.FirstName}}" #FirstName></td>
+            </tr>
+
+            <tr>
+
+                <td>Middle Name<input type="text" name="MiddleName" class="form-control" value="{{data.MiddleName}}" #MiddleName></td>
+                <td>Last Name<input type="text" name="LastName" class="form-control" value="{{data.LastName}}" #LastName></td>
+
+                <td>Gender
+                    <!-- <br>
+                    <span *ngFor="let G of Genders">
+                <input type="radio" name="Gender" [checked]="G == data.Gender" value={{G}} #Gender>{{G}}
+              </span> -->
+                    <select #Gen class="form-control">
+                      <option value="">(Select One)</option>
+                      <option *ngFor= "let Gender of Genders" [selected]="Gender == data.Gender"  value="{{Gender}}">{{Gender}}</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2">Date Of Birth<input type="date" name="DateOfBirth" class="form-control" value="{{data.DateOfBirth}}" #DOB></td>
+
+                <td>Blood Group
+                    <!-- <br>
+                    <span *ngFor="let BloodGroup of BloodGroups">
+                <input type="radio" name="BloodGroup" [checked]="BloodGroup == data.BloodGroup" value={{BloodGroup}}>{{BloodGroup}}
+              </span> -->
+                    <select #BG class="form-control">
+                  <option value="">(Select One)</option>
+                <option *ngFor= "let BloodGroup of BloodGroups" [selected]="BloodGroup == data.BloodGroup"  value="{{BloodGroup}}">{{BloodGroup}}</option>
+                </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="3">Address<textarea class="form-control" #Address placeholder="Enter house/flatno.,Village/Town.,Taluka,Pincode" rows="3" value="{{data.Address}}"></textarea></td>
+            </tr>
+
+            <tr>
+                <td>Contact Number<input type="text" class="form-control" value="{{data.ContactNumber}}" #ContactNumber></td>
+                <td>Email<input type="text" class="form-control" value="{{data.Email}}" #Email></td>
+                <td>Emergency Contact Name<input type="text" class="form-control" value="{{data.EmergencyContactName}}" #EmergencyContactName></td>
+            </tr>
+
+            <tr>
+                <td>Emergency Contact Number<input type="text" class="form-control" value="{{data.EmergencyContactNumber}}" #EmergencyContactNumber></td>
+                <td>Emergency Conatct Relationship<input type="text" class="form-control" value="{{data.EmergencyContactRelationship}}" #EmergencyContactRelationship></td>
+                <td>Education Qualification<input type="text" class="form-control" value="{{data.EducationQualification}}" #Qualification></td>
+            </tr>
+
+            <tr>
+                <td>Department
+                    <select #Dep class="form-control">
+                    <option value="">(Select One)</option>
+                  <option *ngFor= "let Department of Departments" [selected]="Department.DepartmentName == data.Department.DepartmentName"  value="{{Department.Depid}}">{{Department.DepartmentName}}</option>
+                  </select>
+                </td>
+                <td>Designation
+                    <select #Desig class="form-control">
+                  <option value="">(Select One)</option>
+                  <option *ngFor= "let Designation of Designations" [selected]="Designation.DesignationName == data.Designation.DesignationName" value="{{Designation.Dsid}}">{{Designation.DesignationName}}</option>
+                </select>
+                </td>
+                <td>Date of joining<input type="date" class="form-control" value="{{data.DateOfJoining}}" #DateOfJoining></td>
+            </tr>
+
+            <tr>
+                <td>Contract Type
+                    <select #ContType class="form-control">
+                    <option value="">(Select One)</option>
+                    <option *ngFor="let ContractType of ContractTypes" [selected]="ContractType.ContractName == data.ContractType.ContractName" value="{{ContractType.Cid}}" >{{ContractType.ContractName}}</option>
+                  </select>
+                </td>
+                <td>Salary<input type="text" class="form-control" value="{{data.Salary}}" #Salary></td>
+
+            </tr>
+
+            <tr>
+                <td colspan="3">Notes<textarea class="form-control" rows="3" value="{{data.Notes}}" #Notes></textarea></td>
+            </tr>
+
+            <tr><button type="submit" class="btn btn-danger" (click)="onUpdate(data.StaffId,Code,Sal,FirstName,MiddleName,LastName,Gen,DOB,BG,Address,Email,ContactNumber,EmergencyContactName,EmergencyContactNumber,EmergencyContactRelationship,Qualification,Dep,Desig,DateOfJoining,ContType,Salary,Notes)">Update</button></tr>
+
+        </table>
+
+
+
+        <alert></alert>
+    </fieldset>
+
+</form>
+
+
+
+
+<!--  <div ng-controller="DemoController as vm">
+        <img alt="ff" ng-src="{{vm.AbsoluteImageUrl}}" />
+        <img alt="ff" ng-src="../src/app/profile/overview/{{vm.ImageFileName}}" />
+    </div> -->

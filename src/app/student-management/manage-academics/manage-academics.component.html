@@ -1,0 +1,235 @@
+<form (ngSubmit)="onSubmit(manageacademicDetails)" #manageacademicDetails="ngForm">
+<div class="col-md-12">
+<div class="panel panel-primary">
+<div class="panel-body">
+<b><a style="color: red">MANAGE ACADEMICS </a></b>
+<hr>
+<div class="row">
+<div class="col-md-3">
+<div class="form-group">
+<input required class="form-control" name="admission_id" id="admission_id" placeholder="Registration Id" [(ngModel)]="admission_id" (ngModelChange)="checkRegIdEmpty()"/>
+</div>
+</div>
+<div class="col-md-1 center_col1"><label>OR</label></div>
+<div class="col-md-3">
+<div class="form-group">
+<input class="form-control" name="roll_number" id="roll_number" placeholder="Roll number" [(ngModel)]="roll_number"/>
+</div>
+</div>
+<div  class="col-md-3">
+<button type="button" class="btn btn-primary bgreenBtn" style="float:right" id="searchStudentAcademicDetails" [disabled]="!mainDetails.valid" (click)="show=!show">Search</button>
+</div>
+</div>
+<div *ngIf="show">
+<div class="well well-lg">
+<div class="row" id="registration-detail-block"><!-- style="display:none;"-->
+<div class="col-md-12">   
+<p class="row">
+<span class="col-md-2">Registration no :</span> 
+<span class="col-md-4" id="student-registration-number">
+</span>
+<span class="col-md-2">Roll no :</span> 
+<span class="col-md-4" id="student-roll-number">
+</span>
+</p>  
+<p class="row">
+<span class="col-md-2">Course  :</span> 
+<span class="col-md-4" id="student-course">
+</span>
+<span class="col-md-2">Division :</span> 
+<span class="col-md-4" id="student-division">
+</span>
+</p>
+</div>
+</div>
+</div>
+<!--load spinner-->
+
+<form>
+<div class="row manage-academics-block"><!-- style="display:none;"-->
+<div class="col-md-12">
+<div class="form-group">
+<div class="col-md-2">
+<label class="control-label">Current Division</label>
+</div>
+<div class="col-md-4">
+<input class="form-control" id="roll_number_2">
+</div>
+</div>
+</div>
+<br>
+<br>
+<div class="col-md-12 manage-academics-block"><!-- style="display:none;"-->
+<div class="form-group ">
+<div class="col-md-2">
+<label class="control-label">New Division</label>
+</div>
+<div class="col-md-4">
+<select id="division" class="form-control">
+<option value="">(-- Select Division --)</option>
+<option *ngFor= "let division of divisions" [value]="division">
+{{division}}
+</option> 
+</select>
+<div id="error-division" style="color : red;"></div>
+</div>
+<div class="col-md-6">
+<span class="help-block">
+</span>
+</div>
+</div>
+</div>
+<br>
+<br>
+
+<div class="col-md-12 manage-academics-block"><!-- style="display:none;"-->
+<div class="form-group">
+<div class="col-md-2">
+<label class="control-label">Current Roll no.</label>
+</div>
+<div class="col-md-4">
+<input class="form-control" id="roll_number_2">
+</div>
+</div>
+</div>
+
+<br>
+<br>
+
+<div class="col-md-12 manage-academics-block"><!-- style="display:none;"-->
+<div class="form-group  ">
+<div class="col-md-2">
+<label class="control-label">New Roll no.</label>
+</div>
+<div class="col-md-4">
+<input class="form-control" id="roll_number_2">
+<div id="error-new-roll-number" style="color : red;"></div>	
+</div>
+<div class="col-md-6">
+<span class="help-block">
+</span>
+</div>										
+</div>									
+</div>
+
+<br>
+<br><br><br>
+<!--load spinner-->
+<div class="col-md-12 manage-academics-block"><!--style="display:none;"-->
+<div class="col-md-10">
+<button type="button" class="btn btn-primary bgreenBtn" id="updateDivision">Update</button>
+<button type="reset" class="btn btn-default" id="cancelAcademicsUpdate">Cancel</button>
+</div>
+</div>
+<br>
+<br><br>
+
+<div class="col-md-12">
+<div class="well well-lg">
+<div class="row manage-academics-block"><!--style="display:none;"-->   
+<div class="col-md-12">
+<span>Deadmit Student</span>
+</div>
+</div>
+</div>
+</div>
+
+<div class="col-md-12">
+<div class="form-group">
+<div class="col-md-2">
+<label class="control-label">Current Division</label>
+</div>
+<div class="col-md-4">
+<div class="new-ribbon">
+<input class="form-control" type="text" id="student-current" name="student_division">
+</div>
+</div>
+</div>
+</div>
+<br><br><br><br><br><br><br>
+<div class="col-md-12">
+<div class="form-group">
+<div class="col-md-2">
+<label class="control-label">Current Academic Year</label>
+</div>
+<div class="col-md-4">
+<div class="new-ribbon">
+<input class="form-control" type="text" id="current-year" name="current_year">
+</div>
+</div>
+</div>
+</div>
+
+<div class="col-md-12">
+<div class="form-group">
+<div class="col-md-2">
+<label class="control-label">Current Semester</label>
+</div>
+<div class="col-md-4">
+<div class="new-ribbon">
+<input class="form-control" type="text" id="current-semester" name="current_semester">
+</div>
+</div>
+</div>
+</div>
+
+<br><br><br><br><br>
+<div class="col-md-12 manage-academics-block"><!--style="display:none;"-->
+<div class="form-group  ">
+<div class="col-md-2">
+<label class="control-label">Date Of Leaving</label>
+</div>
+<div class="col-md-4">
+<input required id="dateOfBirth" name="dateOfBirth" 
+[(ngModel)]="dateOfBirth" #dobControl="ngModel" type="text" class="form-control" placeholder="dd/mm/yy" 
+bsDatepicker [bsConfig]="datePickerConfig" placement="right">
+<div id="error-new-roll-number" style="color : red;"></div>	
+</div>
+<div class="col-md-6">
+<span class="help-block">
+</span>
+</div>										
+</div>									
+</div>
+<br><br><br>
+
+<div class="col-md-12 manage-academics-block"><!-- style="display:none;"-->
+<div class="form-group  ">
+<div class="col-md-2">
+<label class="control-label">Reason</label>
+</div>
+<div class="col-md-4">
+<textarea class="form-control" rows="5" id="reason" name="reason"></textarea>
+<div id="error-new-roll-number" style="color : red;"></div>	
+</div>
+<div class="col-md-6">
+<span class="help-block">
+</span>
+</div>										
+</div>									
+</div>
+</div>
+<!--load spinner-->
+<br>
+<div class="col-md-12 manage-academics-block"><!--style="display:none;"-->
+<div class="col-md-10">
+<button type="submit" class="btn btn-primary bgreenBtn" id="updateDivision">Submit</button>
+</div>
+</div>
+
+<app-undertaking-content
+[elementId]="'my-editor'"
+(onEditorContentChange)="keyupHandler($event)"
+  >
+</app-undertaking-content>
+
+</form>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+

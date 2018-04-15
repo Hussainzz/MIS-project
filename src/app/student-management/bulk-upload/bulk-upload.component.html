@@ -1,0 +1,61 @@
+<div class="col-md-12" id="#main">
+    <div class="panel panel-primary">
+    <div class="panel-body">
+    <b><a style="color: red">BULK UPLOAD PHOTOS</a></b>
+    <hr>
+    <div class="row">
+        <div class="form-group ">
+          <div class="col-md-3">
+            <label class="control-label">Step 1: Choose what to upload *</label>
+          </div>
+          <div class="col-md-6">
+            <div class="controls">
+              <select class="form-control" name="type" id="type_link">
+                <option value="">( -- Select -- )</option>
+                <option value="1">Photo</option>
+                <option value="2">Signature</option>
+              </select>
+              <div id="error-type" style="color:red;"></div>
+            </div>										
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+          <div class="form-group ">
+            <div class="col-md-3">
+              <label class="control-label">Step 2: Choose multiple pictures *</label>
+            </div>
+            <div class="col-md-6">
+              <div class="controls">
+                <div class="fileupload fileupload-new drop" data-provides="fileupload">
+                  <span class="btn btn-brown btn-file btn btn-default btn-sm">
+                    <span class="fileupload-new">Browse</span>
+                    <input id="studentBulkUpload" type="file" name="upload[]" multiple="multiple"  />
+                  </span>
+                  <span id="spinner-upload" style="float: right;" class="hide"><i class="fa fa-refresh fa-spin color_site_green" style="font-size: 22px;" ></i></span>
+                </div>
+              </div>
+              <div id="bulkUpload-student" class="hide">
+                <p></p>
+              </div>
+              <br>
+              <p class="control-label">File name: 'student roll no'.'extension' e.g. A160001.png</p>
+              <p class="control-label">File format: .png, .jpeg</p>
+              <div id="error-upload" style="color:red;"></div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+              <div class="col-md-3">
+                <label>Step 3: You have uploaded pictures</label>
+              </div>
+              <div class="col-md-6">
+                <button type="submit" class="btn btn-primary bgreenBtn" id="upload-all-student" value="finalise" onclick="return validate();">Finalise</button>
+              </div>
+            </div>
+          </div>
+    </div>
+    </div>
+    </div>

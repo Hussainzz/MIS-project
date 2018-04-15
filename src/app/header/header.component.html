@@ -1,0 +1,124 @@
+<p></p>
+<div class="sidenav">
+    <ul>
+        <li><a routerLink="/dashboard"><span class="glyphicon glyphicon-home">&nbsp;Dashboard</span></a></li>
+
+        <!--   <li><a><span class="glyphicon glyphicon-education">&nbsp;Admissions</span></a>
+            <ul>
+                <li><a routerLink="/manage-admission"><span class="glyphicon glyphicon-cog">&nbsp;Manage_Process</span></a></li>
+                <li><a routerLink="/verification"><span class="glyphicon glyphicon-file">&nbsp;Verification</span></a></li>
+                <li><a routerLink="/shortlist"><span class="glyphicon glyphicon-list">&nbsp;Shortlist</span></a></li>
+                <li><a routerLink="/admit"><span class="glyphicon glyphicon-user"><span class="glyphicon glyphicon-plus"></span>&nbsp;Admit</span></a></li>
+                <li><a routerLink="/finalise"><span class="glyphicon glyphicon-star">&nbsp;Finalise</span></a></li>
+                <li><a routerLink="/search"><span class="glyphicon glyphicon-search">&nbsp;Search</span></a></li>
+                <li><a routerLink="/student_lookup"><span class="glyphicon glyphicon-search">&nbsp;Student Lookup</span></a></li>
+                <li><a routerLink="/audit"><span class="glyphicon glyphicon-exclamation-sign">&nbsp;Audit</span></a></li>
+            </ul>
+        </li> -->
+
+        <li><a><span class="glyphicon glyphicon-tasks">&nbsp;Student_Management</span></a>
+            <ul>
+                <li><a routerLink="/add_new_student"><span class="glyphicon glyphicon-user"><span class="glyphicon glyphicon-plus"></span>&nbsp;Add New Student</span></a></li>
+                <li><a routerLink="/subject_choice"><span class="glyphicon glyphicon-level-up">&nbsp;Subject Choice</span></a></li>
+                <!-- <li><a routerLink="/allocate_division"><span class="glyphicon glyphicon-equalizer">&nbsp;Allocate Division</span></a></li>
+                <li><a routerLink="/allocate_roll_no"><span class="glyphicon glyphicon-sort-by-order">&nbsp;Allocate Roll Numbers</span></a></li> -->
+                <li><a routerLink="/search_student"><span class="glyphicon glyphicon-search">&nbsp;Search</span></a></li>
+                <!--  <li><a routerLink="/manage_academics"><span class="glyphicon glyphicon-folder-open">&nbsp;Manage Academics</span></a></li>
+                <li><a routerLink="/academic_progression"><span class="glyphicon glyphicon-stats">&nbsp;Academic Progression</span></a></li>
+                <li><a routerLink="/bulk_upload"><span class="glyphicon glyphicon-cloud-upload">&nbsp;Bulk Upload</span></a></li> -->
+                <!-- <li><a routerLink="/import"><span class="glyphicon glyphicon-import">&nbsp;Import</span></a></li>
+                <li><a routerLink="/export"><span class="glyphicon glyphicon-export">&nbsp;Export</span></a></li> -->
+            </ul>
+        </li>
+
+        <li><a><span class="glyphicon glyphicon-user">&nbsp;Staff_Management</span></a>
+            <ul>
+                <li><a routerLink="/staffmanage"><span class="glyphicon glyphicon-user"><span class="glyphicon glyphicon-plus"></span>&nbsp;Add New</span></a></li>
+                <li><a routerLink="/searchstaff"><span class="glyphicon glyphicon-search"><span class="glyphicon glyphicon-list"></span>&nbsp;Search & List</span></a></li>
+                <!-- <li><a routerLink="/importstaff"><span class="glyphicon glyphicon-import">&nbsp;Import</span></a></li> -->
+            </ul>
+        </li>
+
+        <!--  <li><a><span class="glyphicon glyphicon-calendar">&nbsp;Time_Table</span></a>
+            <ul>
+                <li><a href="#manage-process"><span class="glyphicon glyphicon-sound-dolby">&nbsp;New</span></a></li>
+                <li><a href="#verification"><span class="glyphicon glyphicon-edit">&nbsp;Edit Weekly TimeTable</span></a></li>
+                <li><a href="#verification"><span class="glyphicon glyphicon-eye-open">&nbsp;View</span></a></li>
+            </ul>
+        </li> -->
+
+        <li><a><span class="glyphicon glyphicon-blackboard">&nbsp;Notices</span></a>
+            <ul>
+                <li><a [routerLink]="['viewnotice']"><span class="glyphicon glyphicon-eye-open">&nbsp;View</span></a></li>
+                <!-- <li><a href="#verification"><span class="glyphicon glyphicon-dashboard">&nbsp;Dashboard</span></a></li> -->
+                <li><a [routerLink]="['newnotice']"><span class="glyphicon glyphicon-plus">&nbsp;New</span></a></li>
+                <!--  <li><a href="#manage-process"><span class="glyphicon glyphicon-th">&nbsp;List NoticeBoards</span></a></li>
+                <li><a href="#verification"><span class="glyphicon glyphicon-th-large">&nbsp;Manage NoticeBoards</span></a></li> -->
+                <li><a [routerLink]="['noticetype']"><span class="glyphicon glyphicon-duplicate">&nbsp;Notice Type</span></a></li>
+            </ul>
+        </li>
+
+        <li><a><span class="glyphicon glyphicon-list-alt">&nbsp;Attendance</span></a>
+            <ul>
+                <li><a [routerLink]="['attendenceallocation']"><span class="glyphicon glyphicon-equalizer">&nbsp;Allocation</span></a></li>
+                <li><a [routerLink]="['projectallocation']"><span class="glyphicon glyphicon-equalizer">&nbsp;Project Allocation</span></a></li>
+                <li><a [routerLink]="['practicalallocation']"><span class="glyphicon glyphicon-equalizer">&nbsp;Practical Allocation</span></a></li>
+                <!--  <li><a href="#manage-process"><span class="glyphicon glyphicon-check">&nbsp;Mark</span></a></li>
+                <li><a href="#verification"><span class="glyphicon glyphicon-check">&nbsp;Mark Project</span></a></li>
+                <li><a href="#verification"><span class="glyphicon glyphicon-check">&nbsp;Mark Practical</span></a></li>
+                <li><a href="#verification"><span class="glyphicon glyphicon-list-alt">&nbsp;Manage</span></a></li> -->
+            </ul>
+        </li>
+
+        <li><a><span class="glyphicon glyphicon-book">&nbsp;Library</span></a>
+            <ul>
+                <li><a [routerLink]="['addnewbook']"><span class="glyphicon glyphicon-book">&nbsp;Book Management</span></a></li>
+                <!-- <li><a href="#verification"><span class="glyphicon glyphicon-cd">&nbsp;Magazine/DVD</span></a></li>
+                <li><a href="#verification"><span class="glyphicon glyphicon-modal-window">&nbsp;Special Case</span></a></li>
+                <li><a href="#manage-process"><span class="glyphicon glyphicon-modal-window">&nbsp;Circulation Management</span></a></li>
+                <li><a href="#verification"><span class="glyphicon glyphicon-modal-window">&nbsp;Book Reservations</span></a></li>
+                <li><a href="#verification"><span class="glyphicon glyphicon-modal-window">&nbsp;Purchase Request</span></a></li>
+                <li><a href="#verification"><span class="glyphicon glyphicon-modal-window">&nbsp;Borrowed Books</span></a></li>
+                <li><a href="#manage-process"><span class="glyphicon glyphicon-modal-window">&nbsp;Reserve Books</span></a></li>
+                <li><a href="#verification"><span class="glyphicon glyphicon-modal-window">&nbsp;Request Book Purchase</span></a></li>
+
+                <li><a href="#manage-process"><span class="glyphicon glyphicon-pencil">&nbsp;Report</span></a></li> -->
+                <li><a [routerLink]="['booksearch']"><span class="glyphicon glyphicon-search">&nbsp;Search</span></a></li>
+                <li><a [routerLink]="['sections']"><span class="glyphicon glyphicon-cog">&nbsp;Settings</span></a></li>
+            </ul>
+        </li>
+
+        <li><a><span class="glyphicon glyphicon-wrench">&nbsp;Settings</span></a>
+            <ul>
+                <!-- <li><a href="#manage-process"><span class="glyphicon glyphicon-qrcode">&nbsp;Role Management</span></a></li> -->
+                <li><a [routerLink]="['dashboard/add-new-course']"><span class="	glyphicon glyphicon-education">&nbsp;Course Management</span></a></li>
+                <li><a [routerLink]="['addDivision']"><span class="glyphicon glyphicon-th">&nbsp;Division Management</span></a></li>
+                <li><a [routerLink]="['addDepartment']"><span class="glyphicon glyphicon-home">&nbsp;Department Management</span></a></li>
+                <li><a [routerLink]="['addDesignation']"><span class="glyphicon glyphicon-user">&nbsp;Designation Management</span></a></li>
+                <li><a [routerLink]="['addContractType']"><span class="glyphicon glyphicon-briefcase">&nbsp;Contract Management</span></a></li>
+                <li><a [routerLink]="['addSubject']"><span class="glyphicon glyphicon-book">&nbsp;Subject Management</span></a></li>
+
+            </ul>
+        </li>
+    </ul>
+    <!--<button class="dropdown-btn">Dropdown
+<i class="fa fa-caret-down"></i>
+</button>
+<div class="dropdown-container">
+<a href="#">Link 1</a>
+<a href="#">Link 2</a>
+<a href="#">Link 3</a>
+</div>-->
+</div>
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="nav navbar-header">
+            <p>College MIS</p>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li *ngIf="valid==true;else other"><a href=" # "><span class="glyphicon glyphicon-user "></span> Signed in as {{username}}</a></li>
+            <ng-template #other> Sign Up</ng-template>
+            <li><a [routerLink]="[ '/login'] "><span class="glyphicon glyphicon-log-out "></span> Log Out</a></li>
+        </ul>
+    </div>
+</nav>

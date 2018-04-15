@@ -1,0 +1,352 @@
+<form (ngSubmit)="onSubmit(staffDetails)" #staffDetails="ngForm">
+    <div class="col-md-12" id="#main">
+        <div class="panel panel-primary">
+            <div class="panel-body">
+                <b><a style="color: red">STAFF MANAGEMENT</a></b>
+                <hr>
+                <div class="row">
+                    <!--                     <div class="col-lg-4 ">
+                        <div class="form-group ">
+                            <label class="control-label">Code *</label>
+                            <input class="form-control" type="text" name='code' id="code" value="" autocomplete="off" />
+                            <span class="help-block" style="color:red;" id="errorCode">
+</span>
+                        </div>
+                    </div> -->
+
+                    <div class="col-lg-4 ">
+                        <div class="form-group ">
+                            <label class="control-label">Salutation *</label>
+                            <input class="form-control" type="text" name='salutation' id="salutation" value="" autocomplete="off" />
+                            <span class="help-block" style="color:red;" id="errorSalutation">
+</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 ">
+                        <div class="form-group ">
+                            <label class="control-label">Firstname *</label>
+                            <input class="form-control" type="text" name='first_name' id="first_name" value="" autocomplete="off" />
+                            <span class="help-block" id="errorFirstName" style="color:red;">
+</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 ">
+                        <div class="form-group ">
+                            <label class="control-label">Middle name</label>
+                            <input class="form-control" type="text" name='middle_name' id="middle_name" value="" autocomplete="off" />
+                            <span class="help-block" id="errorMiddleName" style="color:red;">
+</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="form-group ">
+                            <label class="control-label">Last name *</label>
+                            <input class="form-control" type="text" name='last_name' id="last_name" value="" autocomplete="off" />
+                            <span class="help-block" id="errorLastName" style="color:red;">
+</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="form-group ">
+                            <label class="control-label">Gender *</label>
+                            <div data-schema-key="gender" class="af-radio-group">
+                                <label class="radio-inline fix-indent">
+<input name="gender" type="radio" value="Male">
+Male
+</label>
+                                <label class="radio-inline fix-indent">
+<input name="gender" type="radio" value="Female">
+Female
+</label>
+                            </div>
+                            <span class="help-block" style="color:red;" id="errorGender"></span>
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="form-group ">
+                            <label class="control-label">Date of birth *</label>
+                            <input class="form-control" name='date_of_birth' id="date_of_birth" type="text" autocomplete="off" value="" />
+                            <span class="help-block" style="color:red;" id="errorDateofBirth">
+</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="form-group ">
+                            <label class="control-label">Blood group *</label>
+                            <div data-schema-key="blood_group" class="af-radio-group">
+                                <label class="radio-inline fix-indent">
+<input name="blood_group" type="radio" value="O+">
+O+
+</label>
+                                <label class="radio-inline fix-indent">
+<input name="blood_group" type="radio" value="O-">
+O-
+</label>
+                                <label class="radio-inline fix-indent">
+<input name="blood_group" type="radio" value="A+">
+A+
+</label>
+                                <label class="radio-inline fix-indent">
+<input name="blood_group" type="radio" value="A-">
+A-
+</label>
+                                <label class="radio-inline fix-indent">
+<input name="blood_group" type="radio" value="B+">
+B+
+</label>
+                                <label class="radio-inline fix-indent">
+<input name="blood_group" type="radio" value="B-">
+B-
+</label>
+                                <label class="radio-inline fix-indent">
+<input name="blood_group" type="radio" value="AB+">
+AB+
+</label>
+                                <label class="radio-inline fix-indent">
+<input name="blood_group" type="radio" value="AB-">
+AB-
+</label>
+                            </div>
+                            <span class="help-block" style="color:red;" id="errorBloodGroup"></span>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="form-group ">
+                            <label class="control-label">Address *</label>
+                            <textarea class="form-control" name='address' id="address" value="" rows=2 placeholder="Enter house/flat no., Village/Town, Taluka, Pin Code"></textarea>
+                            <span class="help-block" style="color:red;" id="errorAddress">
+</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="form-group ">
+                            <label class="control-label">Contact number *</label>
+                            <input class="form-control" type="number" maxlength="10" name='contact_number' id="contact_number" value="" />
+                            <span class="help-block" style="color:red;" id="errorContactNumber">
+</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="form-group ">
+                            <label class="control-label">Email </label>
+                            <input class="form-control" name='email' id="email" type="email" value="" />
+                            <span class="help-block" style="color:red;" id="errorEmail">
+</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="form-group ">
+                            <label class="control-label">Emergency contact name </label>
+                            <input class="form-control" name='emergency_contact_name' id="emergency_contact_name" type="text" value="" />
+                            <span class="help-block">
+</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="form-group ">
+                            <label class="control-label"> Emergency contact number </label>
+                            <input class="form-control" name='emergency_contact_number' id="emergency_contact_number" type="number" value="" />
+                            <span class="help-block">
+</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="form-group ">
+                            <label class="control-label"> Emergency contact relationship </label>
+                            <input class="form-control" name='emergency_contact_relationship' id="emergency_contact_relationship" type="text" value="" />
+                            <span class="help-block">
+</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="form-group ">
+                            <label class="control-label">Education qualification </label>
+                            <input class="form-control" name='education_qualification' id="education_qualification" type="text" value="" />
+                            <span class="help-block">
+</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="form-group ">
+                            <label class="control-label">Department *</label>
+                            <select class="form-control" name='department' id="department">
+<option value="">(Select One)</option>
+<option *ngFor= "let department of departments" [value]="department">
+{{department}}
+</option>
+</select>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="form-group ">
+                            <label class="control-label">Date of joining </label>
+                            <input class="form-control" name='date_of_joining' id="date_of_joining" type="text" value="" autocomplete="off" />
+                            <span class="help-block" style="color:red;" id="errorDateofJoining">
+</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="form-group ">
+                            <label class="control-label">Contract type *</label>
+                            <select class="form-control" name='contract_type' id="contract_type" value="">
+<option value="">(Select One)</option>
+<option value="permanent">Permanent</option>
+<option value="contract">Contract</option>
+<option value="daily_wage">Daily wage</option>
+</select>
+                            <span class="help-block" style="color:red;" id="errorContractType">
+</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="form-group ">
+                            <label class="control-label">Salary </label>
+                            <input class="form-control" name='salary' type="number" id="salary" value="" step="1" />
+                            <span class="help-block">
+</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="form-group ">
+                            <label class="control-label">Notes </label>
+                            <textarea class="form-control" name='notes' id="notes" value="" rows=2></textarea>
+                            <span class="help-block">
+</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <input type="hidden" name="addStaff" value="addStaff" />
+                        <input type="hidden" name="baseurl" id="baseurl" value="" />
+                        <button type="submit" class="btn btn-primary bgreenBtn" id="submit_staff_member">Save</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</form>
+
+<!--display this only when save button is clicked-->
+<div class="table-toolbar">
+    <div class="row">
+        <div class="col-md-6"></div>
+    </div>
+</div>
+
+<div class="row" id="detail-block">
+    <!--style=display:none"-->
+    <div class="col-md-12">
+        <fieldset id="justAddedStaff">
+            <div class="col-lg-4 ">
+                <label class="control-label"><b>Salutation: </b></label>
+                <label class="control-label">
+</label>
+            </div>
+            <div class="col-lg-4 ">
+                <label class="control-label"><b>First name: </b> </label>
+                <label class="control-label">
+</label>
+            </div>
+            <div class="col-lg-4 ">
+                <label class="control-label"><b>Middle name: </b> </label>
+                <label class="control-label">
+</label>
+            </div>
+            <div class="col-lg-4">
+                <label class="control-label"><b>Last name: </b> </label>
+                <label class="control-label">
+</label>
+            </div>
+            <div class="col-lg-4">
+                <label class="control-label"><b>Gender: </b> </label>
+                <label class="control-label">
+</label>
+            </div>
+            <div class="col-lg-4">
+                <label class="control-label"><b>Date of Birth: </b> </label>
+                <label class="control-label">
+</label>
+            </div>
+            <div class="col-lg-12">
+                <label class="control-label"><b>Blood group: </b> </label>
+                <label class="control-label">
+</label>
+            </div>
+            <div class="col-lg-12">
+                <label class="control-label"><b>Address: </b></label>
+                <label class="control-label">
+</label>
+            </div>
+            <div class="col-lg-4">
+                <label class="control-label"><b>Contact number:</b></label>
+                <label class="control-label">
+</label>
+            </div>
+            <div class="col-lg-4">
+                <label class="control-label"><b>Email: </b></label>
+                <label class="control-label">
+</label>
+            </div>
+            <div class="col-lg-4">
+                <label class="control-label"><b>Emergency contact name: </b></label>
+                <label class="control-label">
+</label>
+            </div>
+            <div class="col-lg-4">
+                <label class="control-label"><b>Emergency contact number: </b></label>
+                <label class="control-label">
+</label>
+            </div>
+            <div class="col-lg-4">
+                <label class="control-label"><b>Emergency contact relationship: </b></label>
+                <label class="control-label">
+</label>
+            </div>
+            <div class="col-lg-4">
+                <label class="control-label"><b>Education qualification: </b></label>
+                <label class="control-label">
+</label>
+            </div>
+            <div class="col-lg-4">
+                <label class="control-label"><b>Designation: </b></label>
+                <label class="control-label">
+</label>
+            </div>
+            <div class="col-lg-4">
+                <label class="control-label"><b>Date of joining: </b></label>
+                <label class="control-label">
+</label>
+            </div>
+            <div class="col-lg-4">
+                <label class="control-label"><b>Contract type: </b></label>
+                <label class="control-label">
+</label>
+            </div>
+            <div class="col-lg-4">
+                <label class="control-label"><b>Salary: </b></label>
+                <label class="control-label">
+</label>
+            </div>
+            <div class="col-lg-4">
+                <label class="control-label"><b>Department: </b></label>
+                <label class="control-label">
+</label>
+            </div>
+            <div class="col-lg-12">
+                <label class="control-label"><b>Notes: </b></label>
+                <label class="control-label">
+</label>
+            </div>
+            <div class="col-lg-6">
+                <label class="control-label"><b>Username: </b></label>
+                <label class="control-label">
+</label>
+            </div>
+            <div class="col-lg-6">
+                <label class="control-label"><b>Password: </b></label>
+                <label class="control-label">
+</label>
+            </div>
+        </fieldset>
+    </div>
+</div>

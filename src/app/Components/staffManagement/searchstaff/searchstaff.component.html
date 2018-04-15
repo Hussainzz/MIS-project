@@ -1,0 +1,100 @@
+<br>
+<form>
+    <alert></alert>
+    <fieldset class="formpanel">
+
+        <h1>SEARCH STAFF</h1>
+        <table class='table borderless'>
+
+            <br>
+            <tr>
+                <td>Code</td>
+                <td><input #Code type="text" class="form-control"></td>
+
+                <td>Designation</td>
+                <td>
+                    <select #Designation class="form-control">
+                      <option value="">(Select One)</option>
+                      <option *ngFor= "let Designation of Designations" value="{{Designation.Dsid}}">{{Designation.DesignationName}}</option>
+                  </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td>First Name</td>
+                <td><input #First_Name type="text" class="form-control"></td>
+
+                <td>Last Name</td>
+                <td><input #Last_Name type="text" class="form-control"></td>
+            </tr>
+
+            <tr>
+                <td>Gender</td>
+                <td>
+                    <select #Gender class="form-control">
+            <option value="">(--Select--)</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
+                </td>
+
+                <td>Contract Type</td>
+                <td>
+                    <select #Contract_Type class="form-control">
+                  <option value="">(Select One)</option>
+                  <option *ngFor="let ContractType of ContractTypes" value="{{ContractType.Cid}}">{{ContractType.ContractName}}</option>
+                </select>
+                </td>
+            </tr>
+
+
+
+        </table>
+
+
+        <button type="submit" class="btn btn-danger" (click)="getStaff(Code,Designation,First_Name,Last_Name,Gender,Contract_Type)">Search</button> &nbsp;
+        <button type="submit" class="btn btn-secondary">Clear</button> &nbsp;
+        <button type="submit" class="btn btn-secondary">Active Staff Members</button>
+
+        <br>
+        <br>
+        <table id="ViewStaff" class="table table-striped table-hover table-bordered reactive-table">
+            <thead>
+                <tr>
+                    <th>Staff Code</th>
+                    <th>FirstName</th>
+                    <th>LastName</th>
+                    <th>MiddleName</th>
+                    <th>Designation</th>
+                    <th>Gender</th>
+                    <th>ContractType</th>
+                    <th>Department</th>
+                    <th>Actions</th>
+                </tr>
+
+
+
+            </thead>
+            <tbody id="tableBody">
+
+                <tr *ngFor="let Staff of Staffs">
+                    <td>{{Staff.StaffCode}}</td>
+                    <td>{{Staff.FirstName}}</td>
+                    <td>{{Staff.LastName}}</td>
+                    <td>{{Staff.MiddleName}}</td>
+                    <td>{{Staff.Designation.DesignationName}}</td>
+                    <td>{{Staff.Gender}}</td>
+                    <td>{{Staff.ContractType.ContractName}}</td>
+                    <td>{{Staff.Department.DepartmentName}}</td>
+                    <td>
+                        <span class=" glyphicon glyphicon-edit" (click)="GoToProfile(Staff)"></span>
+                        <span class=" glyphicon glyphicon-trash " (click)="Delete(Staff)"></span></td>
+                </tr>
+
+            </tbody>
+        </table>
+
+
+    </fieldset>
+
+</form>
